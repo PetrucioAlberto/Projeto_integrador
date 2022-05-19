@@ -210,7 +210,6 @@ h4{
 
 .jogo1 img{
     width: 20vh;
-
 }
 
 .jogo1 p{
@@ -411,4 +410,109 @@ footer{
     margin-top: 10px;
     height: 70px;
 }
+
+.caixa1{
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+    background: #000;
+    
+}
+
+.container1{
+
+    display:flex;
+    margin-left: 170px;
+    margin-top: 10px;  
+    align-items: center; 
+     
+}
+
+.news{
+    display: flex;
+    margin-left: 200px;
+    color: white;
+    font-size: 17px;
+    align-items: center;
+    
+}
+
+.email{
+    margin-left: 10px;   
+    padding-top: 10px;   
+    align-items: center;  
+    position: relative;
+    margin-bottom: 30px;
+    
+}
+
+input[type="email"]{
+    background-color: #CC0000; 
+}
+
+input::placeholder{
+    color: black;
+    font-size: 17px;
+    padding-left: 10px; 
+     
+}
+
+ul{
+    color: white;
+    display: inline-flex;
+    margin-left: 20px; 
+    margin-bottom: 50px;
+    
+}
+
+.titulo li {
+    list-style-type: none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;  
+    position: relative;
+    margin-left: 150px;
+  }
+
+  input[type="email"] {
+    width: 352px;
+    height: 35px;
+    border-style: none;
+    
+    
+}
+.botao{
+
+    position: static;
+    margin-left: -52px;
+    width: 80px;
+    height: 37px;
+   border-radius: 50px;
+   
+}
+.info{
+
+    border-bottom: white 1px solid;
+    margin-top: 30px;
+    margin-bottom: 20px;
+   
+}
+
+.rodape{
+
+    color: white;
+    display: flex;
+    margin-left: 100px;
+    padding-bottom: 15px;
+    
+}
+.cor1{
+
+    color: #CC0000;
+    margin-left: 450px;
+    
+}
+
+
 
