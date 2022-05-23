@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='./assets/stylesheets/styleLogin.css'>
     <!-- //favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="./assets/image//favicon-32x32.png" type="image/x-icon" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/image//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/image//favicon-16x16.png">
+
 
     <title>LOGIN</title>
 </head>
@@ -35,9 +36,68 @@
             </div>
         </div>
     </header>
+    <main>
+        <div class="cadastro-container">
+            <div class="left-container">
+                <h3>Já sou cadastrado</h3>
+                <form action="" method="POST">
+                    <div class="form-group email">
 
-    
-    
+                        <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="form-group senha">
+
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group submit">
+                        <button type="submit" class="btn-cadastro">Entrar</button>
+                    </div>
+
+                </form>
+                <div class="img-link-container">
+                    <img class="link-senha-cadeado " src="../assets/image/cadeado.png" alt="imagem de cadeado">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+            </div>
+            <div class="right-container">
+                <h3>Não sou cadastrado</h3>
+                <form action="" method="POST">
+                    <div class="form-group2 email">
+
+                        <input type="email" name="email-cadastrar" id="email-cadastrar"
+                            placeholder="Digite o e-mail que deseja cadastrar" required>
+                    </div>
+
+                    <div class="form-group submit">
+                        <button type="submit" class="btn-cadastro">Cadastre-se</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="faixa-vermelha">
+
+            <form action="submit" method="POST" class="cadastrar-news">
+                <p>Inscreva - se e receba<br>
+                Nossas ofertas exclusivas!</p>
+                <input type="text" name="name" id="nome-cadastrar" placeholder="Digite seu nome"
+                    required class="input-nome-news">
+                <input type="email" name="email-cadastrar" id="email-cadastrar-news" placeholder="Digite seu melhor e-mail" required class="input-email-news">
+
+                
+
+                <button type="submit" class="news-cadastro">Cadastre</button>
+
+            </form>
+
+
+
+        </div>
+    </main>
+
+
+
 </body>
 
 </html>
