@@ -2,14 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const userController = require('../controllers/userController');
-
+const partialsControllers = require('../controllers/partialsController');
 
 
 //Routes
 
-router.get('/', userController.cadastroLogin);
 
+router.get('/', partialsControllers.header);
 
 
 

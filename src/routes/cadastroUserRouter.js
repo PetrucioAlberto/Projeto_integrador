@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const productsController = require('../controllers/productsController');
+const userController = require('../controllers/userController');
 
 
 
-router.get('/', productsController.produtoInterno);
+//Routes
 
+router.use('/', userController.cadastroUser);
+
+//export
 
 
 module.exports = router;

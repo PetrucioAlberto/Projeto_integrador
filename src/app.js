@@ -9,15 +9,9 @@ const PORT = 3000
 
 
 
-// require das rotAS
 
-// var usersRouter = require('./src/routes/usersRouter');
-// var partialsRouter = require('./src/routes/partialsRouter');
-// var productsRouter = require('./src/routes/productsRouter');
 
-//controllers
 
-let mainController = require('../src/controllers/mainController');
 
 //port
 app.listen(PORT, () => {
@@ -46,25 +40,35 @@ app.use(express.static(path.join(__dirname, '../public/assets')));
 
 
 //rotas e app.use
+//MAIN
 
-const mainRouter = require('../src/routes/mainRouter');
+const mainRouter = require('./routes/mainRouter');
 app.use('/', mainRouter);
-const userRouter = require('./routes/userRouter');
-app.use('/cadastroLogin', userRouter);
-const partialsRouter = require('./routes/partialsRouter');
-app.use('/partials/footer', partialsRouter);
-app.use('/partials/head', partialsRouter);
-app.use('/partials/header', partialsRouter);
+//////////////////////////
+//USER
+const login = require('./routes/cadastroLoginRouter.js');
+app.use('/cadastroLogin', login);
+const cadastro = require('./routes/cadastroUserRouter.js');
+app.use('/cadastroUser', cadastro);
+
+
+//////////////////////////
+//Partials
+
+const head = require('./routes/headRouter');
+const header = require('./routes/headerRouter');
+const footer = require('./routes/footerRouter');
+app.use('/partials/footer', footer);
+
+app.use('/partials/head', head);
+app.use('/partials/header', header);
+//////////////////////////
+//Products
+
 const productsRouter = require('./routes/productsRouter');
 app.use('/produtoInterno', productsRouter);
+//////////////////////////
 
-
-// app.use('/src', mainRouter);
-// app.use('/header', partialsRouter);
-// app.use('/footer', partialsRouter);
-// app.use('/cadastroLogin', usersRouter);
-// app.use('/produtoInterno', productsRouter);
-// app.use('/', mainController)
 
 
 // catch 404 and forward to error handler
@@ -74,9 +78,9 @@ app.use('/produtoInterno', productsRouter);
 
 // error handler
 // app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+//    set locals, only providing error in development
+  // res.locals.message = err.message;
+  // res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 //   // render the error page
 //   res.status(err.status || 500);

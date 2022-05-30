@@ -6,7 +6,7 @@ const fs = require('fs');
 
 const partialsControllers =  {
     footer: (req, res, next) => {
-       return  res.render('partials/footer');
+         res.render('partials/footer');
     },
     header: (req, res, next) => {
         res.render('partials/header');
