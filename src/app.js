@@ -4,6 +4,7 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let logUser = require('./midllewares/log');
 const PORT = 3000
 
 
@@ -31,6 +32,7 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public/assets')));
+app.use(logUser)
 // app.use('/img',express.static(path.join(__dirname, 'public/assets/images')));
 // app.use('/js',express.static(path.join(__dirname, 'public/assets/javascripts')));
 // app.use('/css',express.static(path.join(__dirname, 'public/assets/stylesheets')));

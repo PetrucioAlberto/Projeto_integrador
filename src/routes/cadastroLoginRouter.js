@@ -11,13 +11,6 @@ const userController = require('../controllers/userController');
 router.get('/', userController.cadastroLogin);
 
 
-
-
-
-
-
-
-
 //export
 
 module.exports = router;

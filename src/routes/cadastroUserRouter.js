@@ -8,7 +8,7 @@ const userController = require('../controllers/userController');
 
 //Routes
 
-router.use('/', userController.cadastroUser);
+router.get('/', userController.cadastroUser);
 
 //export
 

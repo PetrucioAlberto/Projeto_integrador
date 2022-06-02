@@ -8,6 +8,7 @@ const fs = require('fs');
 const mainController = {
     index: (req, res, next) => {
         res.render('index');
+        
     }   
 
 }

@@ -21,29 +21,234 @@
     <body>
         <header>
             <nav>
+                <div class="nav-header-top">
 
-                <div class="logo-domGames">
                     <ul class="ul-1">
                         <a href="http://localhost:3000/"><img src="images/comuns/LOGO.png" alt="logo"></a>
-                        <li>LOJA</li>
-                        <li>SUPORTE</li>
-                        <li>LOGIN/CADASTRO</li>
+                        <li><a href="#">LOJA</a></li>
+                        <li><a href="#">SUPORTE</a></li>
+                        <li><a href="#">LOGIN/CADASTRO</a></li>
                         <form action="#" method="GET">
+
                             <input type="text" name="search" id="search" placeholder="pesquisa" required>
                         </form>
                     </ul>
+
                 </div>
 
-                <div class="sub-header">
+                <div class="nav-header-bot">
                     <ul class="ul-2">
-                        <li>GIFTS CARDS</li>
-                        <li>JOGOS</li>
-                        <li>CONSOLES</li>
-                        <li>ACESSÓRIOS</li>
+                        <li><a href="">GIFTS CARDS</a></li>
+                        <li><a href="">JOGOS</a></li>
+                        <li><a href="">CONSOLES</a></li>
+                        <li><a href="">ACESSÓRIOS</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
+        <main>
+
+
+
+            <form action="#" method="POST">
+                <div class="field-container">
+
+                    <div class="esquerdo-container">
+                        <fieldset class="field-left">
+
+
+                            <legend>Dados Pessoais</legend>
+
+                            <div class="nome">
+                                <input type="text" name="nome" id="nome" placeholder="Nome" required class="input1 ">
+                                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required
+                                    class="input1 ">
+                                <input type="text" name="nome" id="apelido" placeholder="Apelido"
+                                    class="input1  apelido">
+
+                                    <div class="gender">
+        
+                                        <label for="gender" class="gender-label"><span>Gênero</span>
+                                            <select name="gender" id="gender" form="gender">
+                                                <option value="">-------------</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="não declarar">Não declarar</option>
+                                            </select>
+                                    </div>
+                            </div>
+
+                            <div class="data">
+                                <label for="Nascimento">Nascimento</label>
+                                <input type="date" name="data" id="data" placeholder="Data de nascimento" required
+                                    class="input1  data">
+                                <input type="text" name="CPF" id="CPF" placeholder="Digite seu CPF" required
+                                    class="input1  cpf">
+                                <input type="text" name="RG" id="RG" placeholder="Digite seu RG" required
+                                    class="input1  rg">
+                            </div>
+                            <div class="tels">
+
+                                <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required
+                                    class="input1 ">
+                                <input type="tel" name="celular" id="celular" placeholder="Celular" required
+                                    class="input1 ">
+                            </div>
+                            <div class="email">
+
+                                <input type="email" name="email" id="email" placeholder="E-Mail" required
+                                    class="input1  ">
+                                <input type="email" name="email" id="email2" placeholder="repita seu E-Mail" required
+                                    class="input1  ">
+                            </div>
+                            <div class="senha">
+
+                                <input type="password" name="senha" id="senha" placeholder="Digite uma senha" required
+                                    class="input1 ">
+                                <input type="password" name="senha" id="senha2" placeholder="Repita sua senha" required
+                                    class="input1  ">
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+
+
+
+                    <!-- lado direito -->
+
+                    <div class="direito-container">
+                        <div class="endereco">
+                            <fieldset class="field-endereco">
+
+                                <legend>Endereço de cadastro</legend>
+
+
+                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" class="input1  CEP">
+                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required
+                                    class="input1  endcadastro">
+
+                                <div class="input1  ">
+                                    <input type="text" name="numero" id="numero" placeholder="Número" required
+                                        class="numero1">
+                                    <input type="text" name="complemento" id="complemento" placeholder="Complemento"
+                                        class="complemento">
+                                </div>
+
+                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
+                                <input type="text" name="referencia" id="referencia" placeholder="Referência" required>
+                                <div>
+
+                                    <input type="text" name="city" id="cidade" placeholder="Cidade" required>
+                                    <label for="estado">Estado</label>
+                                    <select name="estado" id="estado" form="#">
+                                        <option value="acre">Acre</option>
+                                        <option value="amazonia">Amazônia</option>
+                                        <option value="amapa">Amapá</option>
+                                        <option value="bahia">Bahia</option>
+                                    </select>
+                                    <label for="estado">País</label>
+                                    <select name="pais" id="pais" form="#">
+                                        <option value="australia">Austrália</option>
+                                        <option value="brasil">Brasil</option>
+                                        <option value="canada">Canadá</option>
+                                        <option value="dinamarca">Dinamarca</option>
+                                    </select>
+                                </div>
+
+
+                            </fieldset>
+                        </div>
+                        <div class="entrega">
+
+                            <fieldset class="field-endereco">
+
+                                <legend>Endereco de entrega</legend>
+
+
+                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" class="input1  CEP">
+                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required
+                                    class="input1  endentrega">
+
+                                <div class="input1  ">
+                                    <input type="text" name="numero" id="numero" placeholder="Número" required
+                                        class="numero1">
+                                    <input type="text" name="complemento" id="complemento" placeholder="Complemento"
+                                        class="complemento">
+                                </div>
+
+                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
+                                <input type="text" name="referencia" id="referencia" placeholder="Referência" required>
+                                <div>
+
+                                    <input type="text" name="city" id="cidade" placeholder="Cidade" required>
+                                    <label for="estado">Estado</label>
+                                    <select name="estado" id="estado" form="#">
+                                        <option value="">-------------</option>
+
+                                        <option value="acre">Acre</option>
+                                        <option value="amazonia">Amazônia</option>
+                                        <option value="amapa">Amapá</option>
+                                        <option value="bahia">Bahia</option>
+                                    </select>
+                                    <label for="estado">País</label>
+                                    <select name="pais" id="pais" form="#">
+                                        <option value="">-------------</option>
+
+                                        <option value="australia">Austrália</option>
+                                        <option value="brasil">Brasil</option>
+                                        <option value="canada">Canadá</option>
+                                        <option value="dinamarca">Dinamarca</option>
+                                    </select>
+                                </div>
+
+
+                            </fieldset>
+                        </div>
+
+                    </div>
+
+                    <div class="meet-options-container">
+
+                        <label for="meet" class="option-label">Como conheceu a DomGames?
+
+                            <select name="meet" id="meet" form="#">
+                                <option value="">-------------</option>
+                                <option value="Google">Google</option>
+                                <option value="face">Facebook</option>
+                                <option value="Insta">Instagram</option>
+                                <option value="others">Outros</option>
+                            </select>
+                        </label>
+                        <div class="confirmar">
+                            <label for="Confirmar">
+                                <span>Li e estou de acordo com os <a id="a-invi">
+
+                                        termos de uso</a>
+                                    <span class="invi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                                        veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
+                                        commodi quam. Beatae animi deleniti magni porro cumque ipsam debitis
+                                        quod?</span>
+                                    ao confirmar
+                                </span>
+                            </label>
+                            <input type="checkbox" value="Confirmar" class="confirmar-button">
+
+                        </div>
+
+                        <button>Confirmar</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+            <!-- </div> -->
+
+
+
+
+        </main>
 
 
     </body>

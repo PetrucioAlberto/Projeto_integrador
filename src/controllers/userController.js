@@ -7,9 +7,11 @@ const fs = require('fs');
 const userController = {
     cadastroLogin: (req, res, next) => {
         res.render('cadastroLogin');
+        next();
     },
     cadastroUser: (req, res, next) => {
         res.render('cadastroUser');
+        next();
     }
 
 
