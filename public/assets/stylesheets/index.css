@@ -21,6 +21,10 @@ header{
     box-shadow: 0 0 1rem rgb(180, 164, 164);
 }
 
+.logo img{
+    margin-top: 10px;
+}
+
 header ul{
     display: flex;
     margin: 23px;
@@ -512,6 +516,42 @@ ul{
     color: #CC0000;
     margin-left: 450px;
     
+}
+
+@media only screen and (max-width: 390px){
+
+    header{
+        display: block;
+        height: 195px;
+    }
+
+    .logo img{
+
+        margin-left: 100px;
+        
+    }
+    
+    .promo-do-mes{
+        margin-top: 100px;
+    }
+
+    header ul{
+        display: block;
+        margin-right: 200px;
+        margin-left: 150px;
+    }
+
+    form{
+        margin-left: 115px;
+    }
+
+    header li{
+        padding-left: 0;
+    }
+
+    .sub-header ul{
+        display: inline-block;
+    }
 }
 
 
