@@ -2,21 +2,11 @@ const express = require('express');
 const routes = express.Router();
 
 // ************ Controller Require ************
-const partialsControllers = require('../controllers/partialsController');
+const productsController = require('../controllers/productsController');
 
 
-//Routes
+routes.get('/', productsController.pesquisaProdutos);
 
 
-
-routes.get('/', partialsControllers.footer);
-
-
-
-
-
-
-
-//export
 
 module.exports = routes;

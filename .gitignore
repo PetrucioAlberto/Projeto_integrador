@@ -22,9 +22,11 @@
 
 # Logs and databases #
 ######################
-*.log
-*.sql
-*.sqlite
+.log.txt
+.log
+.sql
+.sqlite
+log.txt
 
 # OS generated files #
 ######################
@@ -38,9 +40,9 @@ Thumbs.db
 
 # Another Specials #
 ####################
-*.yml
-*.cfg
+.yml
+.cfg
 .htaccess
-*.config
+.config
 node_modules/
 .vscode/

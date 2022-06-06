@@ -4,17 +4,14 @@ const fs = require('fs');
 
 //logica de usuários
 
-const userController = {
+let userController = {
     cadastroLogin: (req, res, next) => {
-        res.render('cadastroLogin');
-        next();
+        res.render('cadastroLogin');        
     },
     cadastroUser: (req, res, next) => {
-        res.render('cadastroUser');
-        next();
+        res.render('cadastroUser');       
     }
-
-
+    
 }
 
 

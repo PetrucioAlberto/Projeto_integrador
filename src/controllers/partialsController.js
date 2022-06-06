@@ -4,11 +4,12 @@ const fs = require('fs');
 
 //logica de usuários
 
-const partialsControllers =  {
+let partialsControllers = {
     footer: (req, res, next) => {
-         res.render('partials/footer');
+        res.render('partials/footer')
     },
     header: (req, res, next) => {
+
         res.render('partials/header');
     },
     head: (req, res, next) => {

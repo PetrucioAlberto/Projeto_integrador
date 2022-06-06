@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 
 // ************ Controller Require ************
 const partialsControllers = require('../controllers/partialsController');
@@ -8,7 +8,7 @@ const partialsControllers = require('../controllers/partialsController');
 //Routes
 
 
-router.get('/', partialsControllers.head);
+routes.get('/', partialsControllers.head);
 
 
 
@@ -17,4 +17,4 @@ router.get('/', partialsControllers.head);
 
 //export
 
-module.exports = router;
+module.exports = routes;

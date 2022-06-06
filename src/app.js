@@ -33,42 +33,43 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public/assets')));
 app.use(logUser)
-// app.use('/img',express.static(path.join(__dirname, 'public/assets/images')));
-// app.use('/js',express.static(path.join(__dirname, 'public/assets/javascripts')));
-// app.use('/css',express.static(path.join(__dirname, 'public/assets/stylesheets')));
 
 
 
 
 
-//rotas e app.use
+//rotas e app.use//
+
 //MAIN
 
 const mainRouter = require('./routes/mainRouter');
 app.use('/', mainRouter);
-//////////////////////////
+/////////////////////////
+
 //USER
 const login = require('./routes/cadastroLoginRouter.js');
 app.use('/cadastroLogin', login);
 const cadastro = require('./routes/cadastroUserRouter.js');
 app.use('/cadastroUser', cadastro);
-
-
 //////////////////////////
+
 //Partials
 
 const head = require('./routes/headRouter');
 const header = require('./routes/headerRouter');
 const footer = require('./routes/footerRouter');
 app.use('/partials/footer', footer);
-
 app.use('/partials/head', head);
 app.use('/partials/header', header);
+
 //////////////////////////
 //Products
+const search = require('./routes/searchProductsRouter.js');
+app.use('/pesquisa', search);
 
-const productsRouter = require('./routes/productsRouter');
-app.use('/produtoInterno', productsRouter);
+const produtoInterno = require('./routes/productsRouter');
+app.use('/produtoInterno', produtoInterno);
+
 //////////////////////////
 
 

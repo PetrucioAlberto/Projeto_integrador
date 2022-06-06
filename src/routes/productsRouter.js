@@ -1,13 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 
 // ************ Controller Require ************
-const productsController = require('../controllers/productsController');
+let productsController = require('../controllers/productsController');
+
+
+routes.get('/', productsController.produtoInterno);
 
 
 
-router.get('/', productsController.produtoInterno);
-
-
-
-module.exports = router;
+module.exports = routes;

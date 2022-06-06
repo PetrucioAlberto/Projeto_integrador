@@ -5,14 +5,12 @@ const fs = require('fs');
 
 //lógica principal
 
-const mainController = {
+let mainController = {
     index: (req, res, next) => {
         res.render('index');
         
     }   
 
 }
-
-
 
 module.exports = mainController;
