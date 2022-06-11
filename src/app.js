@@ -32,7 +32,7 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public/assets')));
-app.use(logUser)
+// app.use(logUser)
 
 
 
@@ -47,9 +47,9 @@ app.use('/', mainRouter);
 /////////////////////////
 
 //USER
-const login = require('./routes/cadastroLoginRouter.js');
+const login = require('./routes/cadastroLoginRouter');
 app.use('/cadastroLogin', login);
-const cadastro = require('./routes/cadastroUserRouter.js');
+const cadastro = require('./routes/cadastroUserRouter');
 app.use('/cadastroUser', cadastro);
 //////////////////////////
 
