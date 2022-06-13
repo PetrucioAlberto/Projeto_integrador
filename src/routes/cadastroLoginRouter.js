@@ -1,16 +1,16 @@
-const express = require('express');
-const routes = express.Router();
+// const express = require('express');
+// const routes = express.Router();
 
-// ************ Controller Require ************
-const userController = require('../controllers/userController');
-
-
-
-//Routes
-
-routes.get('/', userController.cadastroLogin);
+// // ************ Controller Require ************
+// const userController = require('../controllers/userController');
 
 
-//export
 
-module.exports = routes;
+// //Routes
+
+// routes.get('/', userController.cadastroLogin);
+
+
+// //export
+
+// module.exports = routes;

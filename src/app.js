@@ -47,10 +47,9 @@ app.use('/', mainRouter);
 /////////////////////////
 
 //USER
-const login = require('./routes/cadastroLoginRouter');
-app.use('/cadastroLogin', login);
-const cadastro = require('./routes/cadastroUserRouter');
-app.use('/cadastroUser', cadastro);
+let userRouter = require('./routes/userRouter');
+app.use('/usuarios', userRouter);
+
 //////////////////////////
 
 //Partials

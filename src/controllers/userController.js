@@ -5,11 +5,15 @@ const fs = require('fs');
 //logica de usuários
 
 let userController = {
-    cadastroLogin: (req, res, next) => {
-        res.render('cadastroLogin');        
+    login: (req, res, next) => {
+        res.render('cadastroLogin');       
     },
-    cadastroUser: (req, res, next) => {
-        res.render('cadastroUser');       
+    cadastro: (req, res, next) => {
+        res.render('cadastroUser');
+    }, 
+
+    infocadastro: (req, res, next) => {
+        res.render('infoUsuario')
     }
     
 }
