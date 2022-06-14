@@ -5,8 +5,10 @@ const routes = express.Router();
 let productsController = require('../controllers/productsController');
 
 
-routes.get('/', productsController.produtoInterno);
+routes.get('/', productsController.pesquisaProdutos);
+routes.get('/produto_interno', productsController.produtoInterno);
+routes.get('/minhas_compras', productsController.historicoDeCompras);
 
 
 
-module.exports = routes;
+module.exports = routes; 

@@ -10,8 +10,10 @@ const productsController = {
     },
 
     produtoInterno: (req, res, next) => {
-        res.render('produtoInterno');
-        
+        res.render('produtoInterno');        
+    },
+    historicoDeCompras: (req, res, next) => {
+        res.render('historico');        
     }
 }
 

@@ -451,10 +451,14 @@ legend {
 .logo-email {
    margin-right: 200px;
 }
-.email2 img {
+/* .email2 img {
 
     width: 100%;
     height: 43px;
+} */
+.aviaozinho {
+    width: 42px;
+    height: 42px;
 }
 
 .email-footer input {

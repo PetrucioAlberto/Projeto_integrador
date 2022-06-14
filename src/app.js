@@ -48,10 +48,12 @@ app.use('/', mainRouter);
 
 //USER
 let userRouter = require('./routes/userRouter');
-app.use('/usuarios', userRouter);
+app.use('/login', userRouter);
 
 //////////////////////////
-
+//carrinho 
+let carrinhoRouter = require('./routes/carrinhoRouter');
+app.use('/carrinho', carrinhoRouter);
 //Partials
 
 const head = require('./routes/headRouter');
@@ -63,11 +65,11 @@ app.use('/partials/header', header);
 
 //////////////////////////
 //Products
-const search = require('./routes/searchProductsRouter.js');
-app.use('/pesquisa', search);
+const productsRouter = require('./routes/productsRouter');
+app.use('/pesquisa', productsRouter);
 
-const produtoInterno = require('./routes/productsRouter');
-app.use('/produtoInterno', produtoInterno);
+// const produtoInterno = require('./routes/productsRouter');
+// app.use('/produtoInterno', produtoInterno);
 
 //////////////////////////
 

@@ -5,7 +5,7 @@ const fs = require('fs');
 
 //lógica principal
 
-let mainController = {
+const mainController = {
     index: (req, res, next) => {
         res.render('index');
         

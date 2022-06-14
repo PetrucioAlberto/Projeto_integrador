@@ -4,7 +4,7 @@ const fs = require('fs');
 
 //logica de usuários
 
-let userController = {
+const userController = {
     login: (req, res, next) => {
         res.render('cadastroLogin');       
     },
