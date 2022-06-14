@@ -550,8 +550,38 @@ ul{
     }
 
     .sub-header ul{
-        display: inline-block;
+        margin-right: 200px;
+        margin-left: 150px;
+        display: block;
     }
+
+    .promo-do-mes{
+        display: block;
+    }
+
+    .jogo-promocao img{
+        width: 47vh;
+        margin-bottom: 20vh;
+    }
+
+    .numero-site{
+        margin-top: 90vw;
+    }
+
+    .promo-mes{
+        margin-left: 11vh;
+        margin-top: 20px;
+    }
+
+    .numero-site{
+        font-size: 9px;
+    }
+
+    h4{
+        font-size: 40px;
+    }
+
+
 }
 
 
