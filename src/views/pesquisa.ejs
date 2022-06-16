@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='../stylesheets/pesquisa.css'>
-    <!-- //favicon -->
-    <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
-
-
-
-    <title>Pesquisa</title>
-
-</head>
-
-<body>
-
-
-    <header>
-        <nav>
-            <ul class="ul-1">
-                <a href="http://localhost:3000/" target="" class=" li1 logo-img"><img src="../images/comuns/LOGO.png"
-                        alt="Logo da da DomGames"></a>
-                <li><a href="#" target="_blank" class="li1 a1">Loja</a></li>
-                <li><a href="#" target="_blank" class="li1 a2">Suporte</a></li>
-                <li><a href="#" target="_blank" class="li1 a3">Sobre</a></li>
-                <li><a href="http://localhost:3000/cadastrologin" target="" class="li1 a4">Login | Cadastro</a></li>
-                <form action="#" method="GET" class="form-ul-1">
-                    <input type="text" name="search" id="search" placeholder="Pesquisa" class=" li1 pesquisa-input">
-                </form>
-            </ul>
-            <ul class="ul-2">
-                <li><a href="#" target="_blank" class="li1 a5">Gift Cards</a></li>
-                <li><a href="#" target="_blank" class="li1 a6">Jogos</a></li>
-                <li><a href="#" target="_blank" class="li1 a7">Consoles</a></li>
-                <li><a href="#" target="_blank" class="li1 a8">Acessórios</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+<%- include('./partials/header.ejs'); %>
+<link rel="stylesheet" href='../stylesheets/pesquisa.css'>
+<title>Pesquisa</title>
+<main>
 
 
 
@@ -184,31 +146,7 @@
         </div>
     </main>
 
-    <footer>
-        <div class="email-footer">
-
-
-            <div class="email2">
-                <div class="logo-email">
-                    <a href="http://localhost:3000/" target=""><img src="../images/comuns/LOGO.png"
-                            alt="Logo da da DomGames" class=" img-home-email"></a>
-                </div>
-                <form action="" method="GET">
-                    <p>receba nossas news e <br>
-                        promoções</p>
-                    <input type="text" placeholder="Digite seu e-mail">
-                    <button class="news-email"><img src="../images/pesquisa/aviaozinho_email.png" alt="" class="aviaozinho"></button>
-                </form>
-            </div>
-        </div>
-        <div class="email-footer2">
-            <a href=""><p>CONTATOS DA LOJA</p></a>
-            <a href=""><p>ENDEREÇO</p></a>
-            <a href=""><p>TRABALHE CONOSCO</p></a>
-            <a href=""><p>CNPJ: 00000000000</p></a>
-        </div>
-        <p class="p-Footer"> <span class="domP">DOM</span><span class="gamesP">GAMES</span> - Todos os direitos reservados.</p>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
 
 
 

@@ -14,29 +14,8 @@
     
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="" target="_blank"><img src="images/index/DOMGAMES.png" alt="logo"></a>
-        </div>
-        <ul>
-            <li>LOJA</li>
-            <li>SUPORTE</li>
-            <li>LOGIN/CADASTRO</li>
-        </ul>
-            <form action="#" method="post">
-                <input type="text" name="search" id="search" placeholder="    BUSCAR" required>
-            </form>
-    </header>
-
-    <div class="sub-header">
-        <ul>
-            <li>GIFTS CARDS</li>
-            <li>JOGOS</li>
-            <li>CONSOLES</li>
-            <li>ACESSÓRIOS</li>
-        </ul>
-    </div>
-
+    
+<%- include('partials/header.ejs'); %>
     <main>
     <div class="promo-do-mes">
         <div class="jogo-promocao">
@@ -122,44 +101,7 @@
             <button>comprar</button>
         </div>
     </div>
-    <footer class="caixa1">
-    
-        <div class="container1">
-            <div class="logo1"> 
-                 <h1> <img src="images/index/img-domgames.png" alt=" "> </h1>
-            </div>
-
-            <div class="news">
-                <p> Receba news e <br> promoçoes</p> 
-
-                <div class="email">    
-                    <form action="email">
-                        <label for="email"> </label>
-                        <input type="email" id="email" name="email" placeholder="e-mail" > 
-                        <button class="botao"> enviar </button>
-                    </form>
-                    
-                </div>     
-                
-            </div>
-        </div>
-
-        <div class="info">
-            <ul class="titulo"> 
-                <li> CONTATOS DA LOJA </li>
-                <li> ENDEREÇO </li>
-                <li> TRABALHE CONOSCO </li>
-                <li> CNPJ-19.702/9999-98 </li>
-            </ul>
-
-        </div>
-
-        <div class="rodape">
-            <p class="cor1">DOM</p>
-            <P>GAMES - Todos os direitos reservados. </P>
-        </div>
-        
-</footer>
-    </main>
+    <%- include('./partials/footer.ejs'); %>
+</main>
 </body>
 </html>
