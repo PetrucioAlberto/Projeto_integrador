@@ -6,9 +6,11 @@ let productsController = require('../controllers/productsController');
 
 
 routes.get('/', productsController.pesquisaProdutos);
-routes.get('/produto_interno', productsController.produtoInterno);
-routes.get('/minhas_compras', productsController.historicoDeCompras);
+routes.get('/produtoInterno', productsController.produtoInterno);
+routes.get('/minhasCompras', productsController.historicoDeCompras);
 
 
 
 module.exports = routes; 
+
+

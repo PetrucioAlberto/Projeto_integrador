@@ -24,33 +24,25 @@
                 <div class="nav-header-top">
 
                     <ul class="ul-1">
-                        <a href="http://localhost:3000/"><img src="images/comuns/LOGO.png" alt="logo"></a>
-                        <li><a href="#">LOJA</a></li>
-                        <li><a href="#">SUPORTE</a></li>
-                        <li><a href="#">LOGIN/CADASTRO</a></li>
-                        <form action="#" method="GET">
-
-                            <input type="search" name="search" id="search" placeholder="pesquisa" >
+                        <a href="http://localhost:3000/" target="" class=" li1 logo-img"><img
+                                src="../images/comuns/LOGO.png" alt="Logo da da DomGames"></a>
+                        <li><a href="#" target="_blank" class="li1 a1">Loja</a></li>
+                        <li><a href="#" target="_blank" class="li1 a2">Suporte</a></li>
+                        <li><a href="#" target="_blank" class="li1 a3">Sobre</a></li>
+                        <li><a href="http://localhost:3000/cadastrologin" target="" class="li1 a4">Login</a></li>
+                        <form action="#" method="GET" class="form-ul-1">
+                            <input type="text" name="search" id="search" placeholder="Pesquisa"
+                                class=" li1 pesquisa-input">
                         </form>
                     </ul>
 
-                </div>
-
-                <div class="nav-header-bot">
-                    <ul class="ul-2">
-                        <li><a href="">GIFTS CARDS</a></li>
-                        <li><a href="">JOGOS</a></li>
-                        <li><a href="">CONSOLES</a></li>
-                        <li><a href="">ACESSÓRIOS</a></li>
-                    </ul>
-                </div>
             </nav>
         </header>
         <main>
 
 
 
-            <form action="#" method="POST">
+            <form method="POST" action="/login/cadastro" enctype="">
                 <div class="field-container">
 
                     <div class="esquerdo-container">
@@ -60,53 +52,46 @@
                             <legend>Dados Pessoais</legend>
 
                             <div class="nome">
-                                <input type="text" name="nome" id="nome" placeholder="Nome" required class="input1 ">
-                                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required
-                                    class="input1 ">
-                                <input type="text" name="nome" id="apelido" placeholder="Apelido"
-                                    class="input1  apelido">
+                                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
 
-                                    <div class="gender">
-        
-                                        <label for="gender" class="gender-label"><span>Gênero</span>
-                                            <select name="gender" id="gender" form="gender">
-                                                <option value="">-------------</option>
-                                                <option value="masculino">Masculino</option>
-                                                <option value="feminino">Feminino</option>
-                                                <option value="não declarar">Não declarar</option>
-                                            </select>
-                                    </div>
+                                <label for="gender" class="gender-label">
+                                    <select name="gender" id="gender" >
+                                        <option value="masculino" selected>Masculino</option>
+                                        <option value="feminino">Feminino</option>
+                                        <option value="não declarar">Não declarar</option>
+                                    </select>
+                                   </label>
+
                             </div>
 
-                            <div class="data">
-                                <label for="Nascimento">Nascimento</label>
-                                <input type="date" name="data" id="data" placeholder="Data de nascimento" required
-                                    class="input1  data">
-                                <input type="text" name="CPF" id="CPF" placeholder="Digite seu CPF" required
-                                    class="input1  cpf">
-                                <input type="text" name="RG" id="RG" placeholder="Digite seu RG" required
-                                    class="input1  rg">
+                            <div id="nascimento">
+                                <span for="Nascimento">Nasc.</span>
+                                <input type="date" name="data" id="data" placeholder="Data de nascimento" class="data"
+                                    required>
+                                <input type="text" name="CPF" id="CPF" placeholder="Digite seu CPF" class="input1  cpf"
+                                    required>
+                                <input type="text" name="RG" id="RG" placeholder="Digite seu RG" class="input1  rg"
+                                    required>
                             </div>
                             <div class="tels">
 
-                                <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required
-                                    class="input1 ">
-                                <input type="tel" name="celular" id="celular" placeholder="Celular" required
-                                    class="input1 ">
+                                <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required>
+                                <input type="tel" name="celular" id="celular" placeholder="Celular" required>
                             </div>
-                            <div class="email">
+                            <div class="emails">
 
-                                <input type="email" name="email" id="email" placeholder="E-Mail" required
-                                    class="input1  ">
-                                <input type="email" name="email" id="email2" placeholder="repita seu E-Mail" required
-                                    class="input1  ">
+                                <input type="email" name="username" id="email" placeholder="E-Mail" class="input1  "
+                                    required>
+                                <input type="email" name="username1" id="email2" placeholder="repita seu E-Mail"
+                                    class="input1  " required>
                             </div>
                             <div class="senha">
 
-                                <input type="password" name="senha" id="senha" placeholder="Digite uma senha" required
-                                    class="input1 ">
-                                <input type="password" name="senha" id="senha2" placeholder="Repita sua senha" required
-                                    class="input1  ">
+                                <input type="password" name="senha" id="senha" placeholder="Digite uma senha"
+                                    class="input1 " required>
+                                <input type="password" name="senha2" id="senha2" placeholder="Repita sua senha"
+                                    class="input1  " required>
                             </div>
 
                         </fieldset>
@@ -124,83 +109,79 @@
                                 <legend>Endereço de cadastro</legend>
 
 
-                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" class="input1 CEP">
-                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required
-                                    class="input1  endcadastro">
+                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" required>
+                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required>
 
-                                <div class="input1  ">
-                                    <input type="text" name="numero" id="numero" placeholder="Número" required
-                                        class="numero1">
-                                    <input type="text" name="complemento" id="complemento" placeholder="Complemento"
-                                        class="complemento">
-                                </div>
+                                <input type="text" name="numero" id="numero" placeholder="Número" required>
+                                <input type="text" name="complemento" id="complemento" placeholder="Complemento"
+                                    required>
+                                
+
 
                                 <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
                                 <input type="text" name="referencia" id="referencia" placeholder="Referência" required>
-                                <div>
 
-                                    <input type="text" name="city" id="cidade" placeholder="Cidade" required>
-                                    <label for="estado">Estado</label>
-                                    <select name="estado" id="estado" form="#">
-                                        <option value="acre">Acre</option>
-                                        <option value="amazonia">Amazônia</option>
-                                        <option value="amapa">Amapá</option>
-                                        <option value="bahia">Bahia</option>
-                                    </select>
-                                    <label for="estado">País</label>
-                                    <select name="pais" id="pais" form="#">
-                                        <option value="australia">Austrália</option>
-                                        <option value="brasil">Brasil</option>
-                                        <option value="canada">Canadá</option>
-                                        <option value="dinamarca">Dinamarca</option>
-                                    </select>
-                                </div>
+
+                                <input type="text" name="city" id="cidade" placeholder="Cidade" required>
+                                <select name="estado" id="estado"  required>
+                                    <option value="" disabled selected>ESTADO</option>
+                                    <option value="acre">Acre</option>
+                                    <option value="amazonia">Amazônia</option>
+                                    <option value="amapa">Amapá</option>
+                                    <option value="bahia">Bahia</option>
+                                </select>
+
+                                <select name="pais" id="pais"  required>
+                                    <option value="" disabled selected>PAÍS</option>
+                                    <option value="australia">Austrália</option>
+                                    <option value="brasil">Brasil</option>
+                                    <option value="canada">Canadá</option>
+                                    <option value="dinamarca">Dinamarca</option>
+                                </select>
+
 
 
                             </fieldset>
                         </div>
                         <div class="entrega">
 
-                            <fieldset class="field-endereco">
+                            <fieldset class="field-endereco-entrega">
 
                                 <legend>Endereco de entrega</legend>
 
 
-                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" class="input1  CEP">
-                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required
-                                    class="input1  endentrega">
+                                <input type="text" name="CEP entrega" id="CEP" placeholder="Insira seu CEP" required>
+                                <input type="text" name="endereco entrega" id="endereco" placeholder="endereço" required>
 
-                                <div class="input1  ">
-                                    <input type="text" name="numero" id="numero" placeholder="Número" required
-                                        class="numero1">
-                                    <input type="text" name="complemento" id="complemento" placeholder="Complemento"
-                                        class="complemento">
-                                </div>
 
-                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
-                                <input type="text" name="referencia" id="referencia" placeholder="Referência" required>
-                                <div>
+                                <input type="text" name="numero entrega" id="numero2" placeholder="Número" required>
+                                <input type="text" name="complemento entrega" id="complemento" placeholder="Complemento"
+                                    required>
 
-                                    <input type="text" name="city" id="cidade" placeholder="Cidade" required>
-                                    <label for="estado">Estado</label>
-                                    <select name="estado" id="estado" form="#">
-                                        <option value="">-------------</option>
 
-                                        <option value="acre">Acre</option>
-                                        <option value="amazonia">Amazônia</option>
-                                        <option value="amapa">Amapá</option>
-                                        <option value="bahia">Bahia</option>
-                                    </select>
-                                    <label for="estado">País</label>
-                                    <select name="pais" id="pais" form="#">
-                                        <option value="">-------------</option>
+                                <input type="text" name="bairro entrega" id="bairro" placeholder="Bairro" required>
+                                <input type="text" name="referencia entrega" id="referencia" placeholder="Referência" required>
 
-                                        <option value="australia">Austrália</option>
-                                        <option value="brasil">Brasil</option>
-                                        <option value="canada">Canadá</option>
-                                        <option value="dinamarca">Dinamarca</option>
-                                    </select>
-                                </div>
+
+                                <input type="text" name="city entrega" id="cidade" placeholder="Cidade" required>
+
+                                <select name="estado entrega" id="estado"  required>
+                                    <option value="" disabled selected>ESTADO</option>
+                                    <option value="acre">Acre</option>
+                                    <option value="amazonia">Amazônia</option>
+                                    <option value="amapa">Amapá</option>
+                                    <option value="bahia">Bahia</option>
+                                </select>
+
+                                <select name="pais entrega" id="pais"  required>
+                                    <option value="" disabled selected  >PAÍS</option>
+
+                                    <option value="australia">Austrália</option>
+                                    <option value="brasil">Brasil</option>
+                                    <option value="canada">Canadá</option>
+                                    <option value="dinamarca">Dinamarca</option>
+                                </select>
+
 
 
                             </fieldset>
@@ -212,9 +193,8 @@
 
                         <label for="meet" class="option-label">Como conheceu a DomGames?
 
-                            <select name="meet" id="meet" form="#">
-                                <option value="">-------------</option>
-                                <option value="Google">Google</option>
+                            <select name="Conheceu" id="meet"  required>
+                                 <option value="Google" selected>Google</option>
                                 <option value="face">Facebook</option>
                                 <option value="Insta">Instagram</option>
                                 <option value="others">Outros</option>
@@ -223,13 +203,17 @@
                         <div class="confirmar">
                             <label for="Confirmar">
                                 <span>Li e estou de acordo com os <a id="a-invi">
-
-                                        termos de uso</a>
-                                    <span class="invi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                                        veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
-                                        commodi quam. Beatae animi deleniti magni porro cumque ipsam debitis
-                                        quod?</span>
-                                    ao confirmar
+                                        termos de uso</a></span>
+                                <span class="invi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                                    veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
+                                    commodi quam. Beatae animi deleniti magni porro cumque ipsam debitis
+                                    quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                                    veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
+                                    commodi quam. Beatae animi deleniti magni porro cumque ipsam debitis
+                                    quod?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                                    veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
+                                    com?</span>
+                                <span> ao confirmar</span>
                                 </span>
                             </label>
                             <input type="checkbox" value="Confirmar" class="confirmar-button">

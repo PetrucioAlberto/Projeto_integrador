@@ -25,13 +25,32 @@ a:active {
 
 }
 
+
 body {
     background-image: url("../images/comuns/godfatherback.jpg");
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-repeat: no-repeat;    
     background-color: var(--header-color);
     color: white;
+    height: 100%;
+}
 
+
+a:hover {
+    text-decoration: underline;
+}
+header {
+    height: 118px;
+}
+header a:hover {
+
+    color: brown;
+    box-shadow: inset 0 0 20px rgb(123, 95, 93), 0 0 20px red;
+    transition: 0.5s;
+}
+
+
+:visited {
+    color: white;
 }
 
 input::placeholder {
@@ -41,91 +60,75 @@ input::placeholder {
     padding-left: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+/* //////////////////////////////////////// */
 
-header {
-    height: 15vh;
-    width: 100%;
-
-
-    flex-wrap: wrap;
-    margin-bottom: 50px;
+nav {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    padding: 20px 100px 20px 100px;
+    min-width: 1000px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.121);
 
 }
 
-header img {
-    padding-right: 50px;
+/* Header nav inicio */
+nav img {
+    display: block;
 }
 
-header input {
-    padding: 10px;
-    border-radius: 20px;
-    height: 30px;
-}
+
 
 header form input {
     background-image: url("../images/cadastroLogin/lupa.png");
     background-repeat: no-repeat;
     background-position: 95%;
     background-size: 20px;
-    border-radius: 15px;
-    height: 35px;
+    border-radius: 12px;
+    height: 30px;
     font-size: 16px;
     text-align: start;
     padding-left: 10px;
 }
 
-header nav {
+
+
+.logo-img {
     display: block;
-    align-items: center;
-    justify-content: space-between;
+    margin: 0 auto;
+
 }
 
-header form {
-    text-align: center;
+.a1,
+.a2,
+.a3,
+.a4,
+.a5,
+.a6,
+.a7,
+.a8 {
+    border: solid 1px rgba(250, 248, 248, 0.082);
+    border-radius: 10px;
 }
 
-.ul-1 li {
-
-
-    display: inline-block;
+.li1 {
+    display: block;
+    margin: 0 auto;
 }
 
 .ul-1 {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-header div,
-ul {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    width: 90%;
+    gap: 5px;
     align-items: center;
-    flex-wrap: wrap;
-    color: white;
+    font-size: 20px;
+    margin: 20px auto;
 }
 
 
-.nav-header-bot {
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: white;
-    list-style-type: none;
-}
-
-.ul-2 {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding: 0 115px;
-}
 
 
 /* //main */
@@ -133,7 +136,7 @@ main {
     background-color: rgba(255, 255, 255, 0);
     height: 100%;
 
-    width: 70vw;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -146,8 +149,8 @@ main {
     margin-top: 10px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "esquerdo-container direito-container"
-        "esquerdo-container direito-container"
-        "meet-options-container meet-options-container ";
+                         "esquerdo-container direito-container"
+                         "meet-options-container meet-options-container ";
     gap: 3px 10px;
     height: 100%;
     padding: 5px;
@@ -167,86 +170,113 @@ fieldset {
     display: flex;
     grid-area: esquerdo-container;
     width: 100%;
-    height: 100%;
+    height: 600px;
     flex-wrap: wrap;
 }
-
-.direito-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    grid-area: direito-container;
-    width: 100%;
-    height: 100%;
-}
-
 .field-left {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.field-left div input {
-    padding: 2px 0px 2px 5px;
-    border-radius: 3px;
-    border: solid 1px black;
-    height: 20px;
-    margin: 10px 0px;
+.field-left input {
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #000;    
+    border: solid 1px rgba(255, 0, 0, 0.446);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
 }
-.nome {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    margin: 0px 5px;
+.field-left input select {
+    margin: 2px;
 }
+.field-left div {
+    margin: 10px auto;
 
-.gender {    
-    font-size: 15px;
-    width: 100%;
-}
-
-.data {
-    display: flex;
 }
 
-.data span {
-    font-size: 15px;
+#data {
+    width: 150px;
 }
-
-.data label {
-    font-size: 15px;
+#email, #email2 {
+    width: 300px;
+    min-width: 200px;    
 }
+#gender {
+    height: 30px;
+    font-size: 14px;
+    border: solid 1px rgba(255, 0, 0, 0.446);
+    border-radius: 5px;
 
-.email {
-
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-
-.email input {
-    width: 220px;
-}
-
-.tels {
-
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
 }
 
 
 
-
-
-
-
-
-.field-right {
+/* ///////////////////// */
+.direito-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-wrap: wrap;
+    grid-area: direito-container;
+    width: 100%;
+    height: 600px;
 }
+
+
+.direito-container div {
+    height: 50%;
+}
+
+
+.field-endereco input {
+    
+    height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #000;    
+    border: solid 1px rgba(255, 0, 0, 0.446);
+    border-radius: 5px;
+    margin: 2px auto;
+}
+/* .field-endereco div {
+    margin: auto auto;
+} */
+.field-endereco {
+    
+    height: 100%;
+    margin: auto auto;;
+}
+#numero {
+    width: 80px;
+}
+
+.field-endereco-entrega input {
+    
+    height: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #000;    
+    border: solid 1px rgba(255, 0, 0, 0.446);
+    border-radius: 5px;
+    margin: 2px auto;
+}
+/* .field-endereco div {
+    margin: auto auto;
+} */
+.field-endereco-entrega {
+    
+    height: 100%;
+    margin: auto auto;;
+}
+#numero2 {
+    width: 80px;
+}
+
+
+/* /////////////////// */
 
 .meet-options-container {
     display: flex;
@@ -255,7 +285,7 @@ fieldset {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 50px 0px;
+    margin: 10px 0px;
 }
 
 .meet-options-container button {
@@ -266,14 +296,30 @@ fieldset {
     margin: 20px 5px 0px 5px;
     font-size: 15px;
     width: 100px;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+}
+.confirmar span {
+    font-size: 18px;
+    color: yellow;
+    font-weight: 400;
+    
+    text-shadow: #000000 3px 3px 5px;
+    
+}
+.option-label {
+    font-size: 1.1rem;
+    color: yellow;
+    font-weight: 400;
+    text-shadow: #c70b0b 3px 3px 5px;
+    margin: 20px 5px 5px 5px;
 }
 
 .meet-options-container a:hover {
 
     background-color: rgb(255, 0, 0);
     color: white;
+    cursor: pointer;
 }
 
 .meet-options-container a {
@@ -283,17 +329,20 @@ fieldset {
 
 #a-invi:hover+.invi {
     display: block;
-
+    
 }
 
 .invi {
+    
+    overflow: scroll;
     display: none;
     text-align: justify;
-    border-radius: 20px;
     width: 300px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.12);
     position: absolute;
     color: white;
     border: 3px solid red;
+    padding: 30px;
 }
+
