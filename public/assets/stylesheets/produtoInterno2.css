@@ -1,0 +1,293 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+.logo{
+    width: 42px;
+    height: 42px;
+    margin: 10px;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(15, 15, 15);
+    box-shadow: 0 0 1rem rgb(180, 164, 164);
+}
+
+header ul{
+    display: flex;
+    margin: 23px;
+}
+
+header li{
+    color: white;
+    list-style-type: none;
+    cursor: pointer;
+    padding-left: 15rem;
+}
+
+form,input{
+    border-radius: 20px;
+    margin: 7px;
+    margin-right: 50px;
+    width: 300;
+    height: 30px;
+}
+
+
+.sub-header ul{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    list-style-type: none;
+    cursor: pointer;
+    margin: 2vh 10vw;
+}
+
+h1{
+    color: white;
+    margin-left: 80px;
+}
+
+h2{
+    color: white;
+    text-align: center;
+    font-size:18px ;  
+    padding-top: 5px;
+}
+
+.comprarojogo{
+    height: 400px;
+    display:flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 30px;
+    
+}
+
+.jogocomprar{
+    background-color: grey;
+    height: 9cm;
+    width: 17cm;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.jogocomprar img{
+    width: 16.5cm;
+    height: 8.5cm;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.infocomprar{
+    background-color: grey;
+    height: 9cm;
+    width: 14cm;
+    margin-right: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.infocomprar p{
+    text-align: center;
+    font-size:xx-large;
+    margin-top: 240px;
+}
+
+.infocomprar button{
+    margin-left: 200px;
+    width: 130px;
+    height: 48px;
+    margin-top: 10px;
+  
+    border-radius: 10px;
+}
+
+.numero-site{
+    background-color: red;
+    margin-top: 30px;
+    display: flex;
+    height: 100px;
+    align-items: center;
+}
+
+.giftcards{
+    color: white;
+    margin: 0 11vw;
+}
+
+.jogosvendidos{
+    color: white;
+    margin: 0 5vw;
+}
+
+.acessorios{
+    color: white;
+    margin: 0 5vw;
+}
+
+.descricaoProduto{
+
+    background-color: grey;
+    height: 4cm;
+    width: 32cm;
+    margin-top: 10px;
+    margin-left: 60px;
+    border-radius: 10px;
+}
+
+.descricaoProduto ul{
+    display: list-item;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    margin-right: 5px;
+    color: white;
+    padding-top: 10px;
+
+}
+
+.video{
+    margin-top: 7px;
+    margin-left: 150px;
+}
+
+.ProdutosRelacionados{
+    height: 142px;
+    width: 32cm;
+    background-color: grey;
+    margin-top: 7px;
+    margin-left: 60px;
+    border-radius: 10px;
+}
+
+.JogosRelacionados{
+    list-style: none;
+   display: flex;
+   justify-content: space-around;
+   border-radius: 10px;  
+}
+
+/* footter */
+
+footer{
+    background-color: antiquewhite;
+    margin-top: 10px;
+    height: 70px;
+}
+
+.caixa1{
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+    background: #000;
+    
+}
+
+.container1{
+
+    display:flex;
+    margin-left: 170px;
+    margin-top: 10px;  
+    align-items: center; 
+     
+}
+
+.news{
+    display: flex;
+    margin-left: 200px;
+    color: white;
+    font-size: 17px;
+    align-items: center;
+    
+}
+
+.email{
+    margin-left: 10px;   
+    padding-top: 10px;   
+    align-items: center;  
+    position: relative;
+    margin-bottom: 30px;
+    
+}
+
+input[type="email"]{
+    background-color: #CC0000; 
+}
+
+input::placeholder{
+    color: black;
+    font-size: 17px;
+    padding-left: 10px; 
+     
+}
+
+ul{
+    color: white;
+    display: inline-flex;
+    margin-left: 20px; 
+    margin-bottom: 50px;
+    
+}
+
+.titulo li {
+    list-style-type: none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;  
+    position: relative;
+    margin-left: 150px;
+  }
+
+  input[type="email"] {
+    width: 352px;
+    height: 35px;
+    border-style: none;
+    
+    
+}
+.botao{
+
+    position: static;
+    margin-left: -52px;
+    width: 80px;
+    height: 37px;
+   border-radius: 50px;
+   
+   
+}
+.info{
+
+    border-bottom: white 1px solid;
+    margin-top: 30px;
+    margin-bottom: 20px;
+   
+}
+
+.rodape{
+
+    color: white;
+    display: flex;
+    margin-left: 100px;
+    padding-bottom: 15px;
+    
+}
+.cor1{
+
+    color: #CC0000;
+    margin-left: 450px;
+    
+}
