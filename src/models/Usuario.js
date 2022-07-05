@@ -1,11 +1,6 @@
 module.exports = (sequelize, dataType) => {
     const Usuario = sequelize.define('Usuario', {
-            id: {
-            type: dataType.INTEGER,
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true
-        },
+            
         name: {
             type: dataType.STRING,
             allowNull: false,
@@ -59,12 +54,20 @@ module.exports = (sequelize, dataType) => {
             type: dataType.INTEGER,
             allowNull: false,
         },
+        createdAt: {
+            type: dataType.DATE,
+            allowNull: false,
+        },
+        updatedAt: {
+            type: dataType.DATE,
+            allowNull: false,
+        },
 
         
     },
     {
         tableName:'usuarios',
-        timestamps: false,
+        timestamps: true,
     })
     return Usuario
 }

@@ -21,9 +21,16 @@ let db = require('../models/index');
 // routes.get('/', mainController.index);
 routes.get('/', userController.login);
 routes.get('/cadastro', userController.formUser);
-routes.post('/cadastro',validators, userController.salvarCadastro);
+routes.post('/cadastro', validators, userController.salvarCadastro);
 routes.get('/sucesso', userController.sucessoUser);
+
+/////////////////////////////////////////user CRUD///////////////////////////////////////////////////////
 routes.get('/users', userController.allUsers);
+routes.post('/users', logDB, userController.addUser);
+routes.put('/users/:id', userController.updateUser);
+routes.delete('/users/:id', userController.delUser);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 routes.get('/UserById/:id', userController.userFilter);
 routes.get('/info', userController.infocadastro);
 
