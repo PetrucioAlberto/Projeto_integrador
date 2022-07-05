@@ -7,6 +7,7 @@
     /* outline: solid 1px red; */
     text-decoration: none;
     list-style-type: none;
+
 }
 
 :visited {
@@ -98,4 +99,7 @@ color: red;
 }
 .gamesP {
     color: white;
+}
+.email-footer2 {
+    background-color: #000;
 }

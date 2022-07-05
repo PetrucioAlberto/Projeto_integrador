@@ -7,11 +7,18 @@ var logger = require('morgan');
 let logUser = require('./midllewares/log');
 const bodyParser = require('body-parser');
 const PORT = 3000
+const session = require('express-session');
+const multer = require('multer');
+
+const db = require('./models/index');
+
+
+
+
+
+//DB
+
 // const logDB = require('./midllewares/logDB');
-
-
-
-
 
 
 
@@ -27,6 +34,12 @@ app.listen(PORT, () => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// app.use('session'({
+//   secret: 'projetointegrador',
+//   resave: true,
+//   saveUninitialized: true
+  
+// }))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));

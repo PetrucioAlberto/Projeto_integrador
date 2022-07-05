@@ -1,2 +1,31 @@
-<%- include ('../partials/header.ejs') %>
-<%- include ('../partials/footer.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULÁRIOD E TESTE</title>
+</head>
+
+<body>
+    <!-- <% if(typeof errors !== 'undefined'){ %>
+        <% for(let error in errors){ %>
+            <%= error  %>: 
+            <%= errors[error].msg %>
+        <% } %>
+        <% } %> -->
+    <form action="/partials/head" method="POST">        
+        <% if(typeof errors !== 'undefined'){ %>
+            <label for="nome"><% for(let error in errors){ %>
+                <%= error %>: 
+                <%= errors[error].msg %>
+            <% } %>
+            <% } %> </label>
+        <input type="text" name="nome" placeholder= "Nome" >
+        <input type="email" name="email" placeholder="email">
+        <button>enviar</button>
+    </form>
+</body>
+
+</html>    
