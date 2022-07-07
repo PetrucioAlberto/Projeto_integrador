@@ -6,7 +6,11 @@ const {
 const fs = require('fs');
 // const db = require('../models/index')
 const {
-    Usuario
+    Usuario,
+    EnderecoEnt,
+    EnderecoRes,
+    FormasPgto
+
 } = require('../models/index')
 
 
@@ -34,7 +38,29 @@ const userController = {
 
     allUsers: async (_, res) => {
         try {
-            const usuarios = await Usuario.findAll()
+            const usuarios = await Usuario.findAll({
+                include: [{
+                        model: EnderecoRes,
+                        as: 'end_res',
+                        required: true
+                    },
+                    {
+                        model: EnderecoEnt,
+                        as: 'end_ent',
+                        required: true
+                    },
+                    {
+                        model: FormasPgto,
+                        as: 'forma_pgto',
+                        required: true
+                    }
+                ]
+                // include: {
+                //     model: EnderecoEnt,
+                //     as: 'end_ent',
+                //     required: true
+                // }
+            });
             return res.send(usuarios)
         } catch (e) {
             console.log('e', e.message)
@@ -121,7 +147,29 @@ const userController = {
             })
             res.send('Dados atualizado com sucesso')
         } catch (e) {
-            return res.send('Ih, qq foi agora!!!!!!')
+            return res.send('Ih, qq foi agora?????!!!!!!')
+        }
+    },
+
+    //enderecos
+    AllEndRes: async (_, res) => {
+        try {
+            const enderecoRes = await EnderecoRes.findAll()
+            return res.send(enderecoRes)
+        } catch (e) {
+            console.log('e', e.message)
+            return res.render('404-page')
+
+        }
+    },
+    AllEndEnt: async (_, res) => {
+        try {
+            const enderecoEnt = await EnderecoRes.findAll()
+            return res.send(enderecoEnt)
+        } catch (e) {
+            console.log('e', e.message)
+            return res.render('404-page')
+
         }
     },
 

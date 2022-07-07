@@ -29,7 +29,12 @@ routes.get('/users', userController.allUsers);
 routes.post('/users', logDB, userController.addUser);
 routes.put('/users/:id', userController.updateUser);
 routes.delete('/users/:id', userController.delUser);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////// FK_usuarios /////////////////////////////////////////////////////////////////
+routes.get('/endRes', userController.AllEndRes);
+routes.get('/endEnt', userController.AllEndEnt);
+routes.get('/formaPgto', userController.AllEndEnt);
+
 
 routes.get('/UserById/:id', userController.userFilter);
 routes.get('/info', userController.infocadastro);

@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataType) => {
     const Usuario = sequelize.define('Usuario', {
-            
+
         name: {
             type: dataType.STRING,
             allowNull: false,
@@ -40,34 +40,29 @@ module.exports = (sequelize, dataType) => {
         email: {
             type: dataType.STRING,
             allowNull: false
-        },
-        
-        enderecos_res_id: {
-            type: dataType.INTEGER,
-            allowNull: false,
-        },
-        enderecos_ens_id: {
-            type: dataType.INTEGER,
-            allowNull: false,
-        },
-        formas_pgtos_id: {
-            type: dataType.INTEGER,
-            allowNull: false,
-        },
-        createdAt: {
-            type: dataType.DATE,
-            allowNull: false,
-        },
-        updatedAt: {
-            type: dataType.DATE,
-            allowNull: false,
-        },
+        }
 
-        
-    },
-    {
-        tableName:'usuarios',
-        timestamps: true,
+
+    }, {
+        tableName: 'usuarios',
+        timestamps: false,
     })
+    Usuario.associate = (models) => {
+        Usuario.belongsTo(models.EnderecoRes, {
+            as: 'end_res',
+            foreignKey: 'enderecos_res_id'
+
+        })
+        Usuario.belongsTo(models.EnderecoEnt, {
+            as: 'end_ent',
+            foreignKey: 'enderecos_ent_id',
+        })
+        Usuario.belongsTo(models.FormasPgto, {
+            as: 'forma_pgto',
+            foreignKey: 'formas_pgtos_id',
+        })
+    }
+
+
     return Usuario
 }
