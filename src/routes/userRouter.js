@@ -26,14 +26,16 @@ routes.get('/sucesso', userController.sucessoUser);
 
 /////////////////////////////////////////user CRUD///////////////////////////////////////////////////////
 routes.get('/users', userController.allUsers);
-routes.post('/users', logDB, userController.addUser);
+routes.get('/users/:id', userController.userById);
+routes.post('/users',  userController.addUser);
 routes.put('/users/:id', userController.updateUser);
 routes.delete('/users/:id', userController.delUser);
 
 //////////////////////////////////////// FK_usuarios /////////////////////////////////////////////////////////////////
-routes.get('/endRes', userController.AllEndRes);
-routes.get('/endEnt', userController.AllEndEnt);
-routes.get('/formaPgto', userController.AllEndEnt);
+routes.get('/endRes', userController.allEndRes);
+routes.get('/endEnt', userController.allEndEnt);
+routes.get('/formaPgto', userController.payType);
+
 
 
 routes.get('/UserById/:id', userController.userFilter);
