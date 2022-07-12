@@ -13,8 +13,6 @@ const {
 
 } = require('../models/index')
 
-
-
 //logica  usuários
 
 const userController = {
@@ -31,13 +29,11 @@ const userController = {
             console.log(errors)
         ]
     },
-
     sucessoUser: (req, res, ) => {
         res.render('sucesso');
     },
     //show users
     allUsers: async (_, res) => {
-
         try {
             const usuarios = await Usuario.findAll({
                 include: [{
@@ -68,7 +64,7 @@ const userController = {
     //show user by id
     userById: async (req, res) => {
         
-        const {  id   } = req.params;
+        const {  id  } = req.params;
         try {
             const usuario = await Usuario.findOne({
                 include: [{
@@ -88,8 +84,7 @@ const userController = {
                 }
             ],
                 where: {
-                    id: id, 
-                    
+                    id: id                   
                 }
             })
 
@@ -106,7 +101,7 @@ const userController = {
         const data = req.body;
         try {
             await Usuario.create({
-                id: data.id,
+                
                 name: data.name,
                 surname: data.surname,
                 password: data.password,
@@ -120,8 +115,7 @@ const userController = {
                 enderecos_res_id: data.enderecos_res_id,
                 enderecos_ent_id: data.enderecos_ent_id,
                 formas_pgtos_id: data.formas_pgtos_id,
-                createdAt: data.createdAt,
-                updatedAt: data.updatedAt
+                
             })
 
             res.send('Usuário criado com sucesso')

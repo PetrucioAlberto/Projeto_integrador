@@ -32,9 +32,7 @@ module.exports = (sequelize, dataType) => {
             pais: {
                 type: dataType.STRING,
                 allowNull: false,
-            },   
-    
-            
+            },              
         }, 
         {
             tableName:'enderecos_ent',

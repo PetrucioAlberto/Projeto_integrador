@@ -5,7 +5,7 @@ module.exports = {
     'models': path.resolve('./src/models'),
     'migrations-path': path.resolve('./config/migrations'),
     'seeders-path': path.resolve('./config/seeders')
-
 }
+
 
 
