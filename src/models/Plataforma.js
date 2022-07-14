@@ -23,15 +23,15 @@ module.exports = (sequelize, dataType) => {
         },
         descricao: {
             type: dataType.INTEGER(1),
-            allowNull: false,
+            allowNull: true,
         },
         image: {
             type: dataType.INTEGER(1),
-            allowNull: false,
+            allowNull: true,
         },
         video_link: {
             type: dataType.INTEGER(1),
-            allowNull: false,
+            allowNull: true,
         }
     
 

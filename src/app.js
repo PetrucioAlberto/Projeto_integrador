@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const PORT = 3000
 const session = require('express-session');
 const multer = require('multer');
-
+const api = require('./routes/apiRouter');
 const db = require('./models/index');
 
 
@@ -54,7 +54,12 @@ app.use(logUser)
 
 
 //rotas e app.use//
+// rota api
 
+const apiRouter = require('./routes/apiRouter');
+app.use('/states', apiRouter);
+
+////////////////////////////////////////
 //MAIN
 
 const mainRouter = require('./routes/mainRouter');

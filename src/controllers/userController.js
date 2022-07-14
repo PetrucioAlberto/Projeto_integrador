@@ -32,7 +32,8 @@ const userController = {
     sucessoUser: (req, res, ) => {
         res.render('sucesso');
     },
-    //show users
+
+    //CRUD USUÁRIOS
     allUsers: async (_, res) => {
         try {
             const usuarios = await Usuario.findAll({
@@ -54,7 +55,11 @@ const userController = {
                 ]
 
             });
-            return res.send(usuarios)
+            return res.json({
+                totalUsers: usuarios.length,
+                dataLogin: usuarios.map(usuario => ` id: ${usuario.id}, cpf: ${usuario.cpf}, email: ${usuario.email}`),
+                data: usuarios
+            })
 
         } catch (e) {
             console.log('e', e.message)
@@ -63,32 +68,36 @@ const userController = {
     },
     //show user by id
     userById: async (req, res) => {
-        
-        const {  id  } = req.params;
+
+        const {
+            id,
+            
+        } = req.params;
         try {
             const usuario = await Usuario.findOne({
                 include: [{
-                    model: EnderecoRes,
-                    as: 'end_res',
-                    required: true
-                },
-                {
-                    model: EnderecoEnt,
-                    as: 'end_ent',
-                    required: true
-                },
-                {
-                    model: FormasPgto,
-                    as: 'forma_pgto',
-                    required: true
-                }
-            ],
+                        model: EnderecoRes,
+                        as: 'end_res',
+                        required: true
+                    },
+                    {
+                        model: EnderecoEnt,
+                        as: 'end_ent',
+                        required: true
+                    },
+                    {
+                        model: FormasPgto,
+                        as: 'forma_pgto',
+                        required: true
+                    }
+                ],
                 where: {
-                    id: id                   
+                    id: id,
+                    
                 }
             })
 
-            res.send(usuario)
+            res.json(usuario)
         } catch (e) {
             console.log('e', e.message)
 
@@ -101,7 +110,7 @@ const userController = {
         const data = req.body;
         try {
             await Usuario.create({
-                
+
                 name: data.name,
                 surname: data.surname,
                 password: data.password,
@@ -115,14 +124,14 @@ const userController = {
                 enderecos_res_id: data.enderecos_res_id,
                 enderecos_ent_id: data.enderecos_ent_id,
                 formas_pgtos_id: data.formas_pgtos_id,
-                
+
             })
 
             res.send('Usuário criado com sucesso')
 
         } catch (e) {
 
-            return res.send('deu merda')
+            return res.send('Ai meu deus')
 
         }
 

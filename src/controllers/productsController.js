@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const db = require('../models/index');
+// const db = require('../models/index');
 const {
     Acessorio,
     Fabricante,
@@ -149,8 +149,7 @@ const productsController = {
                     model: Fabricante,
                     as: 'fabricante',
                     required: true
-                },
-             ],
+                }, ],
                 where: {
                     id: id
                 }
