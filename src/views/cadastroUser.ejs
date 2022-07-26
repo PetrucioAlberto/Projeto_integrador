@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
 
 
-        <title>CADASTRO</title>
+        <title>Cadastro de Usuário</title>
     </head>
 
 <body>
@@ -125,10 +125,9 @@
                                 <input type="text" name="city" id="cidade" placeholder="Cidade" required>
                                 <select name="estado" id="estado"  required>
                                     <option value="" disabled selected>ESTADO</option>
-                                    <option value="acre">Acre</option>
-                                    <option value="amazonia">Amazônia</option>
-                                    <option value="amapa">Amapá</option>
-                                    <option value="bahia">Bahia</option>
+
+                                    
+                                    
                                 </select>
 
                                 <select name="pais" id="pais"  required>
@@ -165,21 +164,21 @@
 
                                 <input type="text" name="city entrega" id="cidade" placeholder="Cidade" required>
 
-                                <select name="estado entrega" id="estado"  required>
+                               
+                                <select name="estado entrega" id="estado entrega"  required>
                                     <option value="" disabled selected>ESTADO</option>
-                                    <option value="acre">Acre</option>
-                                    <option value="amazonia">Amazônia</option>
-                                    <option value="amapa">Amapá</option>
-                                    <option value="bahia">Bahia</option>
+
+                                    
+                                    
                                 </select>
 
-                                <select name="pais entrega" id="pais"  required>
+                                <select name="pais entrega" id="pais_entrega"  required>
                                     <option value="" disabled selected  >PAÍS</option>
 
-                                    <option value="australia">Austrália</option>
-                                    <option value="brasil">Brasil</option>
-                                    <option value="canada">Canadá</option>
-                                    <option value="dinamarca">Dinamarca</option>
+                                    <% countries.forEach((country) =>{ %>
+                                        <option ><%= country.nome %></option>
+                                  <%  }) %>
+                                    
                                 </select>
 
 

@@ -1,5 +1,7 @@
 var express = require('express');
 const path = require('path');
+const api = require('../controllers/apiController');
+
 const {
     validationResult
 } = require('express-validator');
@@ -7,8 +9,6 @@ const fs = require('fs');
 // const db = require('../models/index')
 const {
     Usuario,
-    EnderecoEnt,
-    EnderecoRes,
     FormasPgto
 
 } = require('../models/index')
@@ -38,26 +38,14 @@ const userController = {
         try {
             const usuarios = await Usuario.findAll({
                 include: [{
-                        model: EnderecoRes,
-                        as: 'end_res',
-                        required: true
-                    },
-                    {
-                        model: EnderecoEnt,
-                        as: 'end_ent',
-                        required: true
-                    },
-                    {
-                        model: FormasPgto,
-                        as: 'forma_pgto',
-                        required: true
-                    }
-                ]
-
+                    model: FormasPgto,
+                    as: 'forma_pgto',
+                    required: true
+                }]
             });
             return res.json({
+
                 totalUsers: usuarios.length,
-                dataLogin: usuarios.map(usuario => ` id: ${usuario.id}, cpf: ${usuario.cpf}, email: ${usuario.email}`),
                 data: usuarios
             })
 
@@ -68,49 +56,36 @@ const userController = {
     },
     //show user by id
     userById: async (req, res) => {
-
         const {
             id,
-            
         } = req.params;
         try {
             const usuario = await Usuario.findOne({
                 include: [{
-                        model: EnderecoRes,
-                        as: 'end_res',
-                        required: true
-                    },
-                    {
-                        model: EnderecoEnt,
-                        as: 'end_ent',
-                        required: true
-                    },
-                    {
-                        model: FormasPgto,
-                        as: 'forma_pgto',
-                        required: true
-                    }
-                ],
+                    model: FormasPgto,
+                    as: 'forma_pgto',
+                    required: true
+                }],
                 where: {
                     id: id,
-                    
                 }
             })
-
-            res.json(usuario)
+            return res.json({        
+                      
+                Email: usuario.email,
+                CPF: usuario.cpf,
+                Data: usuario
+            })
         } catch (e) {
             console.log('e', e.message)
-
             return res.send('Ops, deu merda')
         }
     },
     //create user
     addUser: async (req, res) => {
-
         const data = req.body;
         try {
             await Usuario.create({
-
                 name: data.name,
                 surname: data.surname,
                 password: data.password,
@@ -121,18 +96,27 @@ const userController = {
                 cel_whats: data.cel_whats,
                 tel: data.tel,
                 email: data.email,
-                enderecos_res_id: data.enderecos_res_id,
-                enderecos_ent_id: data.enderecos_ent_id,
+                cep_res: data.cep_res,
+                endereco_res: data.endereco_res,
+                numero_res: data.numero_res,
+                bairro_res: data.bairro_res,
+                referencia_res: data.referencia_res,
+                cidade_res: data.cidade_res,
+                estado_res: data.estado_res,
+                pais_res: data.pais_res,
+                cep_ent: data.cep_ent,
+                endereco_ent: data.endereco_ent,
+                numero_ent: data.numero_ent,
+                bairro_ent: data.bairro_ent,
+                referencia_ent: data.referencia_ent,
+                cidade_ent: data.cidade_ent,
+                estado_ent: data.estado_ent,
+                pais_ent: data.pais_ent,
                 formas_pgtos_id: data.formas_pgtos_id,
-
             })
-
             res.send('Usuário criado com sucesso')
-
         } catch (e) {
-
             return res.send('Ai meu deus')
-
         }
 
     },
@@ -171,8 +155,7 @@ const userController = {
                 cel_whats: data.cel_whats,
                 tel: data.tel,
                 email: data.email,
-                enderecos_res_id: data.enderecos_res_id,
-                enderecos_ens_id: data.enderecos_ent_id,
+
                 formas_pgtos_id: data.formas_pgtos_id,
                 createdAt: data.createdAt,
                 updatedAt: data.updatedAt
@@ -187,28 +170,7 @@ const userController = {
         }
     },
 
-    //enderecos
-    allEndRes: async (_, res) => {
-        try {
-            const enderecoRes = await EnderecoRes.findAll()
-            return res.send(enderecoRes)
-        } catch (e) {
-            console.log('e', e.message)
-            return res.render('404-page')
-
-        }
-    },
-    allEndEnt: async (_, res) => {
-        try {
-            const enderecoEnt = await EnderecoRes.findAll()
-            return res.send(enderecoEnt)
-        } catch (e) {
-            console.log('e', e.message)
-            return res.render('404-page')
-
-        }
-    },
-    payType: async (_, res) => {
+    payment: async (_, res) => {
         try {
             const pays = await FormasPgto.findAll()
             return res.send(pays)
@@ -228,9 +190,6 @@ const userController = {
     infocadastro: (req, res, next) => {
         res.render('infoUsuario')
     },
-
-
-
 }
 
 

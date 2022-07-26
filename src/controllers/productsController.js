@@ -7,11 +7,52 @@ const {
     Plataforma,
     Jogo,
     GiftCard,
+    Produto
 
 } = require('../models/index')
 //logica de produtos
 
 const productsController = {
+
+
+    allProducts: async (req, res) => {
+        try {
+            const products = await Produto.findAll({
+
+                include: [
+                    {
+                        model: Acessorio,
+                        as: 'acessorio',
+                        required: true
+                    },
+                    {
+                        model: Plataforma,
+                        as: 'plataforma',
+                        required: true
+                    },
+                    {
+                        model: Jogo,
+                        as: 'jogo',
+                        required: true
+                    },
+                    {
+                        model: GiftCard,
+                        as: 'giftcard',
+                        required: true
+                    }
+                ]
+            });
+            return res.json({
+                total: products.length,
+                data: products
+            })
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('Não foi possível listar os produtos')
+        }
+    },
+
+
     allAcessorios: async (req, res) => {
         try {
             const acessorios = await Acessorio.findAll({
@@ -21,7 +62,10 @@ const productsController = {
                     required: true
                 }, ]
             });
-            return res.send(acessorios)
+            return res.json({
+                total: acessorios.length,
+                data: acessorios
+            })
         } catch (e) {
             console.log('e', e.message)
             return res.send('algo de errado não está certo')
@@ -62,11 +106,11 @@ const productsController = {
                 novo_usado: data.novo_usado,
                 descricao: data.descricao,
                 image: data.image,
-                video_link: data.video_link
-
+                video_link: data.video_link,
+                fabricantes_id: data.fabricantes_id
             })
 
-            res.send('Usuário criado com sucesso')
+            res.send('Produto cadastrado com sucesso')
 
         } catch (e) {
             console.log('e', e.message)
@@ -132,7 +176,10 @@ const productsController = {
                     required: true
                 }, ]
             });
-            return res.send(plataforma)
+            return res.json({
+                total: plataforma.length,
+                data: plataforma
+            })
         } catch (e) {
             console.log('e', e.message)
             return res.send('algo de errado não está certo')
@@ -173,7 +220,8 @@ const productsController = {
                 novo_usado: data.novo_usado,
                 descricao: data.descricao,
                 image: data.image,
-                video_link: data.video_link
+                video_link: data.video_link,
+                fabricantes_id: data.fabricantes_id
 
             })
 
@@ -242,28 +290,234 @@ const productsController = {
                     required: true
                 }, ]
             });
-            return res.send(jogo)
+            return res.json({
+                total: jogo.length,
+                data: jogo
+            })
         } catch (e) {
             console.log('e', e.message)
             return res.send('algo de errado não está certo')
         }
     },
-    AllGiftCards: async (req, res) => {
+    jogoById: async (req, res) => {
+        const {
+            id
+        } = req.params
+        try {
+            const jogo = await Jogo.findOne({
+
+                include: [{
+                    model: Fabricante,
+                    as: 'fabricante',
+                    required: true
+                }],
+                where: {
+                    id: id
+                }
+            });
+            return res.send(jogo)
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('fu...')
+        }
+    },
+    addJogo: async (req, res) => {
+
+        const data = req.body;
+        try {
+            await Jogo.create({
+
+                nome: data.nome,
+                preco: data.preco,
+                estoque: data.estoque,
+                chave: data.chave,
+                midia_fisica: data.midia_fisica,
+                promocao: data.promocao,
+                novo_usado: data.novo_usado,
+                genero: data.genero,
+                descricao: data.descricao,
+                image: data.image,
+                video_link: data.video_link,
+                fabricantes_id: data.fabricantes_id
+            })
+
+            res.send('Jogo cadastrado com sucesso')
+
+        } catch (e) {
+            console.log('e', e.message)
+
+            return res.send('T.T')
+        }
+    },
+    updateJogo: async (req, res) => {
+        const data = req.body;
+        const {
+            id
+        } = req.params;
+        try {
+            await Jogo.update({
+
+                nome: data.nome,
+                preco: data.preco,
+                estoque: data.estoque,
+                chave: data.chave,
+                midia_fisica: data.midia_fisica,
+                promocao: data.promocao,
+                novo_usado: data.novo_usado,
+                genero: data.genero,
+                descricao: data.descricao,
+                image: data.image,
+                video_link: data.video_link
+            }, {
+                where: {
+                    id: id
+                }
+            })
+            res.send('Dados atualizado com sucesso')
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('Ih, qq foi agora?????!!!!!!')
+        }
+    },
+
+    delJogo: async (req, res) => {
+        const {
+            id
+        } = req.params;
+
+        try {
+            await Jogo.destroy({
+                where: {
+                    id: id
+                }
+            })
+            res.send('usuario deletado com sucesso')
+
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('Ops, não funfou')
+        }
+    },
+
+    allGiftCards: async (req, res) => {
         try {
             const giftCard = await GiftCard.findAll({
+
                 include: [{
                     model: Fabricante,
                     as: 'fabricante',
                     required: true
                 }, ]
             });
-            return res.send(giftCard)
+            return res.json({
+                total: giftCard.length,
+                data: giftCard
+            })
 
         } catch (e) {
             console.log('e', e.message)
             return res.send('algo de errado não está certo')
         }
     },
+    giftCardById: async (req, res) => {
+        const {
+            id
+        } = req.params
+        try {
+            const jogo = await GiftCard.findOne({
+
+                include: [{
+                    model: Fabricante,
+                    as: 'fabricante',
+                    required: true
+                }],
+                where: {
+                    id: id
+                }
+            });
+            return res.send(jogo)
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('fu...')
+        }
+    },
+    addGiftCard: async (req, res) => {
+
+        const data = req.body;
+        try {
+            await GiftCard.create({
+
+                nome: data.nome,
+                preco: data.preco,
+                estoque: data.estoque,
+                promocao: data.promocao,
+                chave: data.chave,
+                descricao: data.descricao,
+                image: data.image,
+                video_link: data.video_link,
+                fabricantes_id: data.fabricantes_id
+
+            })
+
+            res.send('GiftCard cadastrado com sucesso')
+
+
+        } catch (e) {
+            console.log('e', e.message)
+
+            return res.send('T.T')
+        }
+    },
+
+    updateGiftCard: async (req, res) => {
+        const data = req.body;
+        const {
+            id
+        } = req.params;
+
+        try {
+            await GiftCard.update({
+
+                nome: data.nome,
+                preco: data.preco,
+                estoque: data.estoque,
+                promocao: data.promocao,
+                chave: data.chave,
+                descricao: data.descricao,
+                image: data.image,
+                video_link: data.video_link
+
+            }, {
+                where: {
+                    id: id
+                }
+            })
+            res.send('Dados atualizado com sucesso')
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('Ih, qq foi agora?????!!!!!!')
+        }
+    },
+
+    delGiftCard: async (req, res) => {
+        const {
+            id
+        } = req.params;
+
+        try {
+            await GiftCard.destroy({
+                where: {
+                    id: id
+                }
+            })
+            res.send('usuario deletado com sucesso')
+
+        } catch (e) {
+            console.log('e', e.message)
+            return res.send('Ops, não funfou')
+        }
+    },
+
 
 
 

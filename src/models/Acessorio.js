@@ -45,5 +45,5 @@ module.exports = (sequelize, dataType) => {
         })
     }
     return Acessorio
-
+    // id, plataformas_id, acessorios_id, jogos_id, giftcards_id, preco_promocional
 }

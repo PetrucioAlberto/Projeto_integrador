@@ -18,8 +18,8 @@ let db = require('../models/index');
 
 //Routes usuario
 
-// routes.get('/', mainController.index);
-routes.get('/', userController.login);
+
+routes.get('/login', userController.login);
 routes.get('/cadastro', userController.formUser);
 routes.post('/cadastro', validators, userController.salvarCadastro);
 routes.get('/sucesso', userController.sucessoUser);
@@ -32,9 +32,8 @@ routes.put('/users/:id', userController.updateUser);
 routes.delete('/users/:id', userController.delUser);
 
 //////////////////////////////////////// FK_usuarios /////////////////////////////////////////////////////////////////
-routes.get('/endRes', userController.allEndRes);
-routes.get('/endEnt', userController.allEndEnt);
-routes.get('/formaPgto', userController.payType);
+
+routes.get('/formaPgto', userController.payment);
 
 
 

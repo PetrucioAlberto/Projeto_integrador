@@ -4,7 +4,9 @@ const routes = express.Router();
 const apiController = require('../controllers/apiController')
 
 
-routes.get('/', apiController.getStates);
+// routes.get('/', apiController.getStates);
+routes.get('/', apiController.getCountries);
+
 
 
 

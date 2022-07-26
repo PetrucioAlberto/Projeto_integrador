@@ -57,7 +57,7 @@ app.use(logUser)
 // rota api
 
 const apiRouter = require('./routes/apiRouter');
-app.use('/states', apiRouter);
+app.use('/api', apiRouter);
 
 ////////////////////////////////////////
 //MAIN
@@ -68,7 +68,7 @@ app.use('/', mainRouter);
 
 //USER
 let userRouter = require('./routes/userRouter');
-app.use('/login', userRouter);
+app.use('/usuarios', userRouter);
 
 //////////////////////////
 //carrinho 
@@ -86,12 +86,12 @@ app.use('/partials/header', header);
 //////////////////////////
 //Products
 const productsRouter = require('./routes/productsRouter');
-app.use('/pesquisa', productsRouter);
+app.use('/produtos', productsRouter); 
 
 
 
 //////////////////////////
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).render('404-page.ejs');
 })
 

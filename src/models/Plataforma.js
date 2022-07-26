@@ -45,9 +45,7 @@ module.exports = (sequelize, dataType) => {
         Plataforma.belongsTo(models.Fabricante, {
             as: 'fabricante',
             foreignKey: 'fabricantes_id'
-        })
-        
-        
+        })       
 
      }
     return Plataforma
