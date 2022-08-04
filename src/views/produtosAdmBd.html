@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>DomGames</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'  href='../../public/assets/stylesheets/produtosAdmBd.css'>
+
+    <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
+
+    
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="" target="_blank"><img src="../../public/assets/images/index/LOGO.png" alt="logo"></a>
+        </div>
+        <ul>
+            <li>LOJA</li>
+            <li>SUPORTE</li>
+            <li>LOGIN/CADASTRO</li>
+        </ul>
+
+    </header>
+
+    <div class="sub-header">
+        <ul>
+            <li>GIFTS CARDS</li>
+            <li>JOGOS</li>
+            <li>CONSOLES</li>
+            <li>ACESSÓRIOS</li>
+        </ul>
+    </div>
+
+    <main>
+
+        <div class="bloco1">
+
+            <div class="acessorios">
+                <h3>ACESSÓRIOS</h3>
+
+                <form class ='formAcessorios'>
+                    <label for="inputNome">NOME:</label>
+                    <input type="text" id="inputNome" required maxlength="30" minlength="10" >
+
+                    <label for="inputPreco">PREÇO R$:</label>
+                    <input type="number" id="inputPreco" required>
+
+                    <label for="inputEstoque">ESTOQUE:</label>
+                    <input type="number" id="inputEstoque" required>
+
+                    <label for="inputPromocao">PROMOÇÃO:</label>
+                    <select name="inputPromocao" id="inputPromocao" required>
+                        <option>SIM</option>
+                        <option>NÃO</option>
+                    </select>
+
+                    <label for="inputCondicao">CONDIÇÃO:</label>
+                    <select name="inputCondicao" id="inputCondicao" required>
+                        <option>NOVO</option>
+                        <option>USADO</option>
+                    </select>
+
+                    <label for="textDiscricao">DISCRIÇÃO:</label>
+                    <textarea name="textDiscricao" id="textDiscricao" required maxlength="250" style="resize: none"></textarea>
+                    
+                    <label for="inputUploadImg">IMAGEM DO ACESSÓRIO:</label>
+                    <input class="inputUploadImg" id="maintenanceFile" name="inputUploadImg" type="file" required>
+
+                    <label for="inputNome">LINK DO VIDEO:</label>
+                    <input type="text" id="inputNome" required maxlength="100" minlength="10" >
+
+                    <button>ENVIAR</button>
+                    
+
+                </form>
+
+            </div>
+
+    
+        <div class="jogos">
+
+            <h3>JOGOS</h3>
+
+                <form class ='formJogos'>
+                    <label for="inputNomeDoJogo">NOME DO JOGO:</label>
+                    <input type="text" id="inputNomeDoJogo" required maxlength="30" minlength="10" >
+
+                    <label for="inputPrecoDoJogo">PREÇO R$:</label>
+                    <input type="number" id="inputPrecoDoJogo" required>
+
+                    <label for="inputEstoqueDoJogo">ESTOQUE:</label>
+                    <input type="number" id="inputEstoqueDoJogo" required>
+
+                    <label for="inputPromocaoDoJogo">PROMOÇÃO:</label>
+                    <select name="inputPromocaoDoJogo" id="inputPromocaoDoJogo" required>
+                        <option>SIM</option>
+                        <option>NÃO</option>
+                    </select>
+
+                    <label for="inputCondicaoDoJogo">CONDIÇÃO:</label>
+                    <select name="inputCondicaoDoJogo" id="inputCondicaoDoJogo" required>
+                        <option>NOVO</option>
+                        <option>USADO</option>
+                    </select>
+
+                    <label for="textDiscricaoDoJogo">DISCRIÇÃO DO JOGO:</label>
+                    <textarea name="textDiscricaoDoJogo" id="textDiscricaoDoJogo" required maxlength="250" style="resize: none"></textarea>
+                    
+                    <label for="inputUploadImgDoJogo">IMAGEM DO JOGO:</label>
+                    <input class="inputUploadImgDoJogo" id="maintenanceFile" name="inputUploadImgDoJogo" type="file" required>
+
+                    <label for="inputNome">LINK DO VIDEO:</label>
+                    <input type="text" id="inputNome" required maxlength="100" minlength="10" >
+
+                    <button>ENVIAR</button>
+                    
+
+                </form>
+
+
+        </div>
+        
+
+        <div class="plataformas">
+
+            <h3>PLATAFORMAS</h3>
+
+                <form class ='formPlataformas'>
+                    <label for="inputNomeDaPlataforma">NOME DA PLATAFORMA:</label>
+                    <input type="text" id="inputNomeDaPlataforma" required maxlength="30" minlength="10" >
+
+                    <label for="inputPrecoDaPlataforma">PREÇO R$:</label>
+                    <input type="number" id="inputPrecoDaPlataforma" required>
+
+                    <label for="inputEstoqueDaPlataforma">ESTOQUE:</label>
+                    <input type="number" id="inputEstoqueDaPlataforma" required>
+
+                    <label for="inputPromocaoDaPlataforma">PROMOÇÃO:</label>
+                    <select name="inputPromocaoDaPlataforma" id="inputPromocaoDaPlataforma" required>
+                        <option>SIM</option>
+                        <option>NÃO</option>
+                    </select>
+
+                    <label for="inputCondicaoDaPlataforma">CONDIÇÃO DA PLATAFORMA:</label>
+                    <select name="inputCondicaoDaPlataforma" id="inputCondicaoDaPlataforma" required>
+                        <option>NOVO</option>
+                        <option>USADO</option>
+                    </select>
+
+                    <label for="textDiscricaoDaPlataforma">DISCRIÇÃO DA PLATAFORMA:</label>
+                    <textarea name="textDiscricaoDaPlataforma" id="textDiscricaoDaPlataforma" required maxlength="250" style="resize: none"></textarea>
+                    
+                    <label for="inputUploadImgDaPlataforma">IMAGEM DA PLATAFORMA:</label>
+                    <input class="inputUploadImgDaPlataforma" id="maintenanceFile" name="inputUploadImgDoJogo" type="file" required>
+
+                    <label for="inputNome">LINK DO VIDEO:</label>
+                    <input type="text" id="inputNome" required maxlength="100" minlength="10" >
+
+                    <button>ENVIAR</button>
+                    
+
+                </form>
+
+
+            </div>
+        </div>
+
+        <div class="bloco2">
+            <div class="giftcards">
+
+                <h3>GIFTCARDS</h3>
+
+                <form class ='formGiftcards'>
+                    <label for="inputNomeDoGiftcards">NOME DO GIFTCARDS:</label>
+                    <input type="text" id="inputNomeDoGiftcards" required maxlength="30" minlength="10" >
+
+                    <label for="inputPrecoDoGiftcards">PREÇO R$:</label>
+                    <input type="number" id="inputPrecoDoGiftcards" required>
+
+                    <label for="inputEstoqueDoGiftcards">ESTOQUE:</label>
+                    <input type="number" id="inputEstoqueDoGiftcards" required>
+        
+
+                    <label for="inputPromocaoDoGiftcards">PROMOÇÃO:</label>
+                    <select name="inputPromocaoDoGiftcards" id="inputPromocaoDoGiftcards" required>
+                        <option>SIM</option>
+                        <option>NÃO</option>
+                    </select>
+
+                    <label for="inputChaveDoGiftcards">CHAVE:</label>
+                    <input type="number" id="inputChaveDoGiftcards" required>
+
+                    <label for="textDiscricaoDoGiftcards">DISCRIÇÃO DA PLATAFORMA:</label>
+                    <textarea name="textDiscricaoDoGiftcards" id="textDiscricaoDoGiftcards" required maxlength="250" style="resize: none"></textarea>
+                    
+                    <label for="inputUploadImgDoGiftcards">IMAGEM DA PLATAFORMA:</label>
+                    <input class="inputUploadImgDoGiftcards" id="maintenanceFile" name="inputUploadImgDoJogo" type="file" required>
+
+                    <label for="inputNome">LINK DO VIDEO:</label>
+                    <input type="text" id="inputNome" required maxlength="100" minlength="10" >
+
+                    <button>ENVIAR</button>
+                    
+
+                </form>
+
+            </div>
+
+            <div class="fabricantes">
+
+                <h3>FABRICANTES</h3>
+
+                <form class ='formFabricantes'>
+                    <label for="inputNomeDoFabricante">NOME DO FABRICANTE:</label>
+                    <input type="text" id="inputNomeDoFabricante" required maxlength="30" minlength="10" >
+
+                    <label for="inputEstoqueDoFabricante">PLATAFORMA:</label>
+                    <select name="inputEstoqueDoFabricante" id="inputEstoqueDoFabricante" required>
+                        <option>XBOX</option>
+                        <option>PLAYSTATION</option>
+                        <option>NINTENDO</option>
+                        <option>COMPUTADOR</option>
+                    </select>
+                    <button>ENVIAR</button>
+                    
+                </form>
+
+            </div>
+        
+        </div>
+
+    
+    </main>
+
+    <footer class="caixa1">
+        <div class="container1">
+            <div class="logo1"> 
+                 <h1> <img src="../../public/assets/images/index/LOGO.png" alt=" "> </h1>
+            </div>
+        </div>
+        <div class="info">
+            <ul class="titulo"> 
+                <li> CONTATOS DA LOJA </li>
+                <li> ENDEREÇO </li>
+                <li> TRABALHE CONOSCO </li>
+                <li> CNPJ-19.702/9999-98 </li>
+            </ul>
+        </div>
+        <div class="rodape">
+            <p class="cor1">DOM</p>
+            <P>GAMES - Todos os direitos reservados. </P>
+        </div>
+</footer>
+
+    
+</body>
+</html>

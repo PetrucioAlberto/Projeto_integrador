@@ -1,0 +1,454 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+.logo{
+    width: 42px;
+    height: 42px;
+    margin: 10px;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(15, 15, 15);
+    box-shadow: 0 0 1rem rgb(180, 164, 164);
+}
+
+.logo img{
+    margin-top: 10px;
+}
+
+header ul{
+    display: flex;
+    margin: 23px;
+}
+
+header li{
+    color: white;
+    list-style-type: none;
+    cursor: pointer;
+    padding-left: 19rem;
+}
+
+
+.sub-header ul{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    list-style-type: none;
+    cursor: pointer;
+    margin: 2vh 10vw;
+}
+
+main{
+    display: block;
+}
+
+.bloco1{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+        
+}
+
+.acessorios{
+
+    background-color: grey;
+    width: 300px;
+    height: 580px;
+    margin-left: 30px;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.acessorios h3{
+    margin-left: 85px;
+    padding-top: 2px;
+}
+.formAcessorios{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+input#inputNome{
+    width: 270px;
+}
+
+input#inputPreco{
+    width: 70px;
+}
+
+input#inputEstoque{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputPromocao{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputCondicao{
+    width: 90px;
+
+}
+
+textarea#textDiscricao{
+    width: 280px;
+    height: 120px;
+}
+
+button{
+    margin-top: 30px;
+    width: 70px;
+    margin-left: 90px;
+}
+
+input:invalid{
+    border-color: red;
+}
+
+textarea:invalid{
+    border-color: red
+}
+
+input:valid{
+    border-color: green;
+}
+
+textarea:valid{
+    border-color: green;
+}
+
+
+
+label{
+    color: white;
+    padding-top: 10px;
+
+}
+
+.jogos{
+
+    background-color: grey;
+    width: 300px;
+    height: 580px;
+    margin-left: 30px;
+
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.jogos h3{
+    margin-left: 120px;
+    padding-top: 2px;
+}
+.formJogos{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+input#inputNomeDoJogo{
+    width: 270px;
+}
+
+input#inputPrecoDoJogo{
+    width: 70px;
+}
+
+input#inputEstoqueDoJogo{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputPromocaoDoJogo{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputCondicaoDoJogo{
+    width: 90px;
+
+}
+
+textarea#textDiscricaoDoJogo{
+    width: 280px;
+    height: 120px;
+}
+
+button{
+    margin-top: 30px;
+    width: 70px;
+    margin-left: 90px;
+}
+
+
+
+.plataformas{
+
+    background-color: grey;
+    width: 300px;
+    height: 580px;
+    margin-left: 30px;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.plataformas h3{
+    margin-left: 70px;
+    padding-top: 2px;
+}
+.formPlataformas{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+input#inputNomeDaPlataforma{
+    width: 270px;
+}
+
+input#inputPrecoDaPlataforma{
+    width: 70px;
+}
+
+input#inputEstoqueDaPlataforma{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputPromocaoDaPlataforma{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputCondicaoDaPlataforma{
+    width: 90px;
+
+}
+
+textarea#textDiscricaoDaPlataforma{
+    width: 280px;
+    height: 120px;
+}
+
+button{
+    margin-top: 30px;
+    width: 70px;
+    margin-left: 90px;
+}
+
+
+.bloco2{
+    display: flex;
+    justify-content: center;
+        
+}
+
+.giftcards{
+
+    background-color: grey;
+    width: 300px;
+    height: 580px;
+    margin-left: 30px;
+    margin-top: 40px;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.giftcards h3{
+    margin-left: 90px;
+    padding-top: 2px;
+}
+.formGiftcards{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+input#inputNomeDoGiftcards{
+    width: 270px;
+}
+
+input#inputPrecoDoGiftcards{
+    width: 70px;
+}
+
+input#inputEstoqueDoGiftcards{
+    width: 60px;
+    height: 23px;
+}
+
+select#inputPromocaoDoGiftcards{
+    width: 60px;
+    height: 23px;
+}
+
+input#inputChaveDoGiftcards{
+    width: 90px;
+
+}
+
+textarea#textDiscricaoDoGiftcards{
+    width: 280px;
+    height: 120px;
+}
+
+.fabricantes{
+
+    background-color: grey;
+    width: 300px;
+    height: 580px;
+    margin-left: 30px;
+    margin-top: 40px;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.fabricantes h3{
+    margin-left: 90px;
+    padding-top: 2px;
+}
+.formFabricantes{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+input#inputNomeDoFabricante{
+    width: 270px;
+}
+
+input#inputEstoqueDoFabricante{
+    width: 190px;
+}
+
+
+footer{
+    background-color: antiquewhite;
+    margin-top: 10px;
+    height: 70px;
+}
+
+.caixa1{
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+    background: #000;
+    
+}
+
+.container1{
+
+    display:flex;
+    margin-left: 580px;
+    margin-top: 10px;  
+    align-items: center; 
+     
+}
+
+.news{
+    display: flex;
+    margin-left: 200px;
+    color: white;
+    font-size: 17px;
+    align-items: center;
+    
+}
+
+.email{
+    margin-left: 10px;   
+    padding-top: 10px;   
+    align-items: center;  
+    position: relative;
+    margin-bottom: 30px;
+    
+}
+
+input[type="email"]{
+    background-color: #CC0000; 
+}
+
+input::placeholder{
+    color: black;
+    font-size: 17px;
+    padding-left: 10px; 
+     
+}
+
+ul{
+    color: white;
+    display: inline-flex;
+    margin-left: 20px; 
+    margin-bottom: 50px;
+    
+}
+
+.titulo li {
+    list-style-type: none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;  
+    position: relative;
+    margin-left: 150px;
+  }
+
+  input[type="email"] {
+    width: 352px;
+    height: 35px;
+    border-style: none;
+    
+    
+}
+.botao{
+
+    position: static;
+    margin-left: -52px;
+    width: 80px;
+    height: 37px;
+   border-radius: 50px;
+   
+}
+.info{
+
+    border-bottom: white 1px solid;
+    margin-top: 30px;
+    margin-bottom: 20px;
+   
+}
+
+.rodape{
+
+    color: white;
+    display: flex;
+    margin-left: 100px;
+    padding-bottom: 15px;
+    
+}
+.cor1{
+
+    color: #CC0000;
+    margin-left: 450px;
+    
+}
