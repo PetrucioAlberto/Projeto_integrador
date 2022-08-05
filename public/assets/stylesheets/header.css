@@ -75,7 +75,7 @@ header form input {
 .a5,
 .a6,
 .a7,
-.a8 {
+.a8  {
     border: solid 1px rgba(250, 248, 248, 0.082);
     border-radius: 10px;
 }
@@ -98,10 +98,11 @@ header form input {
 
 .ul-2 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
-    width: 50%;
-    gap: 5px;
+    width: 65%;
+    gap: 60px;
     margin: 0 auto;
     font-size: 20px;
+    margin-left: 280px;
 }
