@@ -13,10 +13,7 @@ module.exports = (sequelize, dataType) => {
             type: dataType.STRING,
             allowNull: false,
         },
-        birthday: {
-            type: dataType.DATE,
-            allowNull: false,
-        },
+        
         gender: {
             type: dataType.INTEGER,
             allowNull: false,
@@ -25,10 +22,7 @@ module.exports = (sequelize, dataType) => {
             type: dataType.STRING,
             allowNull: false,
         },
-        rg: {
-            type: dataType.STRING,
-            allowNull: false,
-        },
+        
         cel_whats: {
             type: dataType.STRING,
             allowNull: false,

@@ -21,7 +21,7 @@ let db = require('../models/index');
 
 routes.get('/login', userController.login);
 routes.get('/cadastro', userController.formUser);
-routes.post('/cadastro', validators, userController.salvarCadastro);
+routes.post('/cadastro', userController.salvarCadastro);
 routes.get('/sucesso', userController.sucessoUser);
 
 /////////////////////////////////////////user CRUD///////////////////////////////////////////////////////

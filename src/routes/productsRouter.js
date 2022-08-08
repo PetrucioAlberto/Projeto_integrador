@@ -5,7 +5,7 @@ let productsController = require('../controllers/productsController');
 
 
 
-routes.get('/', productsController.allProducts);
+// routes.get('/', productsController.allProducts);
 
 
 routes.get('/acessorios', productsController.allAcessorios);

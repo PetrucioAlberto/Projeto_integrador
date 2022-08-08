@@ -15,42 +15,7 @@ const {
 const productsController = {
 
 
-    allProducts: async (req, res) => {
-        try {
-            const products = await Produto.findAll({
-
-                include: [
-                    {
-                        model: Acessorio,
-                        as: 'acessorio',
-                        required: true
-                    },
-                    {
-                        model: Plataforma,
-                        as: 'plataforma',
-                        required: true
-                    },
-                    {
-                        model: Jogo,
-                        as: 'jogo',
-                        required: true
-                    },
-                    {
-                        model: GiftCard,
-                        as: 'giftcard',
-                        required: true
-                    }
-                ]
-            });
-            return res.json({
-                total: products.length,
-                data: products
-            })
-        } catch (e) {
-            console.log('e', e.message)
-            return res.send('Não foi possível listar os produtos')
-        }
-    },
+    
 
 
     allAcessorios: async (req, res) => {

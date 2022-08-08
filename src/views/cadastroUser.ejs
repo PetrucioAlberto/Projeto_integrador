@@ -10,8 +10,8 @@
         <link rel="stylesheet" href='../stylesheets/cadastroUser.css'>
         <!-- //favicon -->
         <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
-
-
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../javascripts/cadastroUserScripts.js"></script>
         <title>Cadastro de Usuário</title>
     </head>
 
@@ -29,7 +29,7 @@
                         <li><a href="#" target="_blank" class="li1 a1">Loja</a></li>
                         <li><a href="#" target="_blank" class="li1 a2">Suporte</a></li>
                         <li><a href="#" target="_blank" class="li1 a3">Sobre</a></li>
-                        <li><a href="http://localhost:3000/cadastrologin" target="" class="li1 a4">Login</a></li>
+                        <li><a href="http://localhost:3000/usuarios/login" target="" class="li1 a4">Login</a></li>
                         <form action="#" method="GET" class="form-ul-1">
                             <input type="text" name="search" id="search" placeholder="Pesquisa"
                                 class=" li1 pesquisa-input">
@@ -42,56 +42,59 @@
 
 
 
-            <form method="POST" action="/login/cadastro" enctype="">
+            <form method="POST" action="" id="formulario" enctype="">
                 <div class="field-container">
 
                     <div class="esquerdo-container">
                         <fieldset class="field-left">
 
-
                             <legend>Dados Pessoais</legend>
 
                             <div class="nome">
-                                <input type="text" name="nome" id="nome" placeholder="Nome" required>
-                                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
+                                <input type="text" name="nome" minlength="3" maxlength="20" id="nome" placeholder="Nome*"
+                                    required>
+                                <input type="text" name="sobrenome" id="sobrenome" minlength="3" maxlength="20"
+                                    placeholder="Sobrenome*" required>
 
                                 <label for="gender" class="gender-label">
-                                    <select name="gender" id="gender" >
+                                    <select name="gender" id="gender">
                                         <option value="masculino" selected>Masculino</option>
                                         <option value="feminino">Feminino</option>
                                         <option value="não declarar">Não declarar</option>
                                     </select>
-                                   </label>
+                                </label>
 
                             </div>
 
                             <div id="nascimento">
-                                <span for="Nascimento">Nasc.</span>
-                                <input type="date" name="data" id="data" placeholder="Data de nascimento" class="data"
-                                    required>
-                                <input type="text" name="CPF" id="CPF" placeholder="Digite seu CPF" class="input1  cpf"
-                                    required>
-                                <input type="text" name="RG" id="RG" placeholder="Digite seu RG" class="input1  rg"
-                                    required>
+                                <input type="text" name="CPF" id="cpf" value="" placeholder="CPF* - Apenas números"
+                                    minlength="14" maxlength="14" class="input1  cpf" required>
+
                             </div>
                             <div class="tels">
 
-                                <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required>
-                                <input type="tel" name="celular" id="celular" placeholder="Celular" required>
+                                <input type="tel" name="telefone" id="telefone" minlength="14" maxlength="15"
+                                    placeholder="Celular/Whatsapp*" required>
+                                <input type="tel" name="celular" id="celular" minlength="14" maxlength="15"
+                                    placeholder="Celular">
                             </div>
                             <div class="emails">
 
-                                <input type="email" name="username" id="email" placeholder="E-Mail" class="input1  "
+                                <input type="email" name="username" id="email" placeholder="E-MAIL* - ex.:joao@email.com"
+                                    pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$" class="input1  "
                                     required>
-                                <input type="email" name="username1" id="email2" placeholder="repita seu E-Mail"
-                                    class="input1  " required>
+                                <input type="email" name="username1" id="email2"
+                                    pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$"
+                                    placeholder="repita seu E-Mail*" required class="input1  ">
                             </div>
                             <div class="senha">
 
-                                <input type="password" name="senha" id="senha" placeholder="Digite uma senha"
-                                    class="input1 " required>
-                                <input type="password" name="senha2" id="senha2" placeholder="Repita sua senha"
-                                    class="input1  " required>
+                                <input type="password" autocomplete="on" minlength="8"
+                                    pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" name="senha"
+                                    id="senha" placeholder="Senha*" class="input1 " required>
+                                <input type="password" autocomplete="on" minlength="8"
+                                    pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$"
+                                    name="senha2" id="senha2" placeholder="Repita sua senha*" class="input1" required>
                             </div>
 
                         </fieldset>
@@ -109,33 +112,31 @@
                                 <legend>Endereço de cadastro</legend>
 
 
-                                <input type="text" name="CEP" id="CEP" placeholder="Insira seu CEP" required>
-                                <input type="text" name="endereco" id="endereco" placeholder="endereço" required>
-
-                                <input type="text" name="numero" id="numero" placeholder="Número" required>
-                                <input type="text" name="complemento" id="complemento" placeholder="Complemento"
+                                <input type="text" name="CEP" id="cep" maxlength="09" placeholder="Busca pelo CEP*"
                                     required>
-                                
+                                <input type="text" name="endereco" id="endereco" placeholder="Logradouro" maxlength="20" required readonly >
+
+                                <input type="text" name="numero" id="numero" maxlength="06" placeholder="Número*"
+                                    required>
+                                <input type="text" name="complemento" id="complemento" maxlength="20" placeholder="Complemento" >
 
 
-                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
-                                <input type="text" name="referencia" id="referencia" placeholder="Referência" required>
+
+                                <input type="text" name="bairro" id="bairro" maxlength="20" placeholder="Bairro*"
+                                readonly required>
+                                <input type="text" name="referencia" id="referencia" maxlength="20"
+                                    placeholder="Referência*">
 
 
-                                <input type="text" name="city" id="cidade" placeholder="Cidade" required>
-                                <select name="estado" id="estado"  required>
-                                    <option value="" disabled selected>ESTADO</option>
+                                <input type="text" name="city" id="cidade" maxlength="20" placeholder="Cidade*" required readonly>
+                                <select name="estado" id="uf" required readonly>
+                                    <option id="estado" value="" disabled selected>UF</option>
 
-                                    
-                                    
                                 </select>
 
-                                <select name="pais" id="pais"  required>
-                                    <option value="" disabled selected>PAÍS</option>
-                                    <option value="australia">Austrália</option>
-                                    <option value="brasil">Brasil</option>
-                                    <option value="canada">Canadá</option>
-                                    <option value="dinamarca">Dinamarca</option>
+                                <select name="pais" id="pais" class="paises" required maxlength="30">
+                                    <option id="AAA" value="00" disabled selected>PAÍS*</option>
+
                                 </select>
 
 
@@ -149,36 +150,31 @@
                                 <legend>Endereco de entrega</legend>
 
 
-                                <input type="text" name="CEP entrega" id="CEP" placeholder="Insira seu CEP" required>
-                                <input type="text" name="endereco entrega" id="endereco" placeholder="endereço" required>
+                                <input type="text" name="CEP entrega" id="cep2" maxlength="09" placeholder="Busca pelo CEP*" required >
+                                <input type="text" name="endereco entrega" id="endereco2" placeholder="endereço de entrega*"
+                                    required readonly>
 
 
-                                <input type="text" name="numero entrega" id="numero2" placeholder="Número" required>
-                                <input type="text" name="complemento entrega" id="complemento" placeholder="Complemento"
-                                    required>
+                                <input type="text" name="numero entrega" id="numero2" maxlength="06" placeholder="Número*" required>
+                                <input type="text" name="complemento entrega" id="complemento1"
+                                    placeholder="Complemento">
 
 
-                                <input type="text" name="bairro entrega" id="bairro" placeholder="Bairro" required>
-                                <input type="text" name="referencia entrega" id="referencia" placeholder="Referência" required>
+                                <input type="text" name="bairro entrega" id="bairro2" maxlength="20" placeholder="Bairro da entrega*" required readonly>
+                                <input type="text" name="referencia entrega" id="referencia1" maxlength="20" placeholder="Referência">
 
 
-                                <input type="text" name="city entrega" id="cidade" placeholder="Cidade" required>
+                                <input type="text" name="city entrega" id="cidade2" maxlength="20" placeholder="Cidade da entrega*" required readonly>
 
                                
-                                <select name="estado entrega" id="estado entrega"  required>
-                                    <option value="" disabled selected>ESTADO</option>
+                                <select name="estado entrega" id="uf2" required readonly maxlength="20">
+                                    <option id="estado2"value="" disabled selected>UF</option>
 
-                                    
-                                    
                                 </select>
 
-                                <select name="pais entrega" id="pais_entrega"  required>
-                                    <option value="" disabled selected  >PAÍS</option>
+                                <select name="pais entrega" id="pais2" maxlength="30" class="paises" required>
+                                    <option value="" disabled selected>PAÍS*</option>
 
-                                    <% countries.forEach((country) =>{ %>
-                                        <option ><%= country.nome %></option>
-                                  <%  }) %>
-                                    
                                 </select>
 
 
@@ -192,8 +188,8 @@
 
                         <label for="meet" class="option-label">Como conheceu a DomGames?
 
-                            <select name="Conheceu" id="meet"  required>
-                                 <option value="Google" selected>Google</option>
+                            <select name="Conheceu" id="meet">
+                                <option value="Google" selected>Google</option>
                                 <option value="face">Facebook</option>
                                 <option value="Insta">Instagram</option>
                                 <option value="others">Outros</option>
@@ -202,7 +198,7 @@
                         <div class="confirmar">
                             <label for="Confirmar">
                                 <span>Li e estou de acordo com os <a id="a-invi">
-                                        termos de uso</a></span>
+                                        termos de uso*</a></span>
                                 <span class="invi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
                                     veniam maxime rem sequi quos? Illo aspernatur perspiciatis voluptates possimus,
                                     commodi quam. Beatae animi deleniti magni porro cumque ipsam debitis
@@ -215,11 +211,11 @@
                                 <span> ao confirmar</span>
                                 </span>
                             </label>
-                            <input type="checkbox" value="Confirmar" class="confirmar-button">
+                            <input type="checkbox" value="Confirmar" class="confirmar-button" id="licenca" required>
 
                         </div>
 
-                        <button>Confirmar</button>
+                        <button id="confirmar">Confirmar</button>
                     </div>
 
                 </div>

@@ -24,10 +24,11 @@ const userController = {
         res.render('cadastroUser');
     },
     salvarCadastro: (req, res, next) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty())[
-            console.log(errors)
-        ]
+        // const errors = validationResult(req);
+        // if (!errors.isEmpty())[
+        //     console.log(errors)
+        // ]
+        res.send('XYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXXY')
     },
     sucessoUser: (req, res, ) => {
         res.render('sucesso');
@@ -88,11 +89,9 @@ const userController = {
             await Usuario.create({
                 name: data.name,
                 surname: data.surname,
-                password: data.password,
-                birthday: data.birthday,
+                password: data.password,                
                 gender: data.gender,
-                cpf: data.cpf,
-                rg: data.rg,
+                cpf: data.cpf,                
                 cel_whats: data.cel_whats,
                 tel: data.tel,
                 email: data.email,
@@ -147,15 +146,12 @@ const userController = {
                 id: data.id,
                 name: data.name,
                 surname: data.surname,
-                password: data.password,
-                birthday: data.birthday,
+                password: data.password,                
                 gender: data.gender,
-                cpf: data.cpf,
-                rg: data.rg,
+                cpf: data.cpf,                
                 cel_whats: data.cel_whats,
                 tel: data.tel,
                 email: data.email,
-
                 formas_pgtos_id: data.formas_pgtos_id,
                 createdAt: data.createdAt,
                 updatedAt: data.updatedAt

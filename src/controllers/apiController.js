@@ -4,37 +4,30 @@ const api = require('../../configAxios/api');
 
 const apiController = {
 
-    getCountries: (req, res, ) => {
+    getCountries:  (req, res, ) => {
         api.get('/paises?orderBy=nome')
             .then(response => {
-
-
-                const countries = response.data
-
-                return res.render('cadastroUser', {
-                    countries: countries
-                })
+                const countries = response.data;
+                return res.json(countries)
+                
             })
             .catch(err => {
                 console.log(err)
             })
 
     },
-    // getStates:  (req, res, ) => {
+    getStates:  (req, res, ) => {
 
-    //     api.get('/estados?orderBy=nome')
-    //         .then(statesReturned => {
+        api.get('/estados?orderBy=nome')
 
-    //             const states = statesReturned.data
-
-    //             return res.render('cadastroUser',  {states: states})
-    //         })
-
-    //         .catch (err => {
-    //             console.log(err)
-    //         })
-
-    // }
+            .then(response => {
+                const states = response.data
+                return res.render('cadastroUser',  {states: states})
+            })
+            .catch (err => {
+                console.log(err)
+            })
+    }
 
 
 

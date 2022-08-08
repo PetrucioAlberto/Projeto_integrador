@@ -55,7 +55,7 @@ header a:hover {
 
 input::placeholder {
     font-size: 14px;
-    color: #D3D0D0;
+    color: #a321215d;
     opacity: 1;
     padding-left: 10px;
 }
@@ -345,4 +345,14 @@ fieldset {
     border: 3px solid red;
     padding: 30px;
 }
-
+input:invalid {
+    border-color:solid 2px rgb(221, 255, 0);
+}
+.erroDeInput {
+    border: rgb(255, 0, 0) solid 3px !important;
+    color: red
+}
+.inputOk {
+    border: green solid 3px !important;
+    
+}
