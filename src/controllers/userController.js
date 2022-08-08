@@ -11,7 +11,7 @@ const {
     Usuario,
     FormasPgto
 
-} = require('../models/index')
+} =  require('../models/index')
 
 //logica  usuários
 
