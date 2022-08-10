@@ -11,6 +11,7 @@
         <!-- //favicon -->
         <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
         <script src="../javascripts/cadastroUserScripts.js"></script>
         <title>Cadastro de Usuário</title>
     </head>
@@ -42,7 +43,7 @@
 
 
 
-            <form method="POST" action="" id="formulario" enctype="">
+            <form method="POST" action="/usuarios/cadastro" id="formulario" enctype="">
                 <div class="field-container">
 
                     <div class="esquerdo-container">
@@ -51,36 +52,39 @@
                             <legend>Dados Pessoais</legend>
 
                             <div class="nome">
-                                <input type="text" name="nome" minlength="3" maxlength="20" id="nome" placeholder="Nome*"
-                                    required>
-                                <input type="text" name="sobrenome" id="sobrenome" minlength="3" maxlength="20"
+                                <input type="text" name="name" minlength="3" maxlength="20" id="nome"
+                                    placeholder="Nome*" required>
+                                <input type="text" name="surname" id="sobrenome" minlength="3" maxlength="45"
                                     placeholder="Sobrenome*" required>
 
                                 <label for="gender" class="gender-label">
                                     <select name="gender" id="gender">
-                                        <option value="masculino" selected>Masculino</option>
-                                        <option value="feminino">Feminino</option>
-                                        <option value="não declarar">Não declarar</option>
+                                        <option value="1" selected>Masculino</option>
+                                        <option value="2">Feminino</option>
+                                        <option value="3">Não declarar</option>
                                     </select>
                                 </label>
 
                             </div>
+                            
+              
 
                             <div id="nascimento">
-                                <input type="text" name="CPF" id="cpf" value="" placeholder="CPF* - Apenas números"
+                                <input type="text" name="cpf" id="cpf" value="" placeholder="CPF* - Apenas números"
                                     minlength="14" maxlength="14" class="input1  cpf" required>
 
                             </div>
                             <div class="tels">
 
-                                <input type="tel" name="telefone" id="telefone" minlength="14" maxlength="15"
+                                <input type="tel" name="cel_whats" id="telefone" minlength="14" maxlength="15"
                                     placeholder="Celular/Whatsapp*" required>
-                                <input type="tel" name="celular" id="celular" minlength="14" maxlength="15"
+                                <input type="tel" name="tel" id="celular" minlength="14" maxlength="15"
                                     placeholder="Celular">
                             </div>
                             <div class="emails">
 
-                                <input type="email" name="username" id="email" placeholder="E-MAIL* - ex.:joao@email.com"
+                                <input type="email" name="email" id="email"
+                                    placeholder="E-MAIL* - ex.:joao@email.com"
                                     pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$" class="input1  "
                                     required>
                                 <input type="email" name="username1" id="email2"
@@ -90,7 +94,7 @@
                             <div class="senha">
 
                                 <input type="password" autocomplete="on" minlength="8"
-                                    pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" name="senha"
+                                    pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" name="password"
                                     id="senha" placeholder="Senha*" class="input1 " required>
                                 <input type="password" autocomplete="on" minlength="8"
                                     pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$"
@@ -101,7 +105,10 @@
                     </div>
 
 
-
+                    
+                    
+                    
+                    
 
                     <!-- lado direito -->
 
@@ -112,34 +119,34 @@
                                 <legend>Endereço de cadastro</legend>
 
 
-                                <input type="text" name="CEP" id="cep" maxlength="09" placeholder="Busca pelo CEP*"
+                                <input type="text" name="cep_res" id="cep" maxlength="09" placeholder="Busca pelo CEP*"
                                     required>
-                                <input type="text" name="endereco" id="endereco" placeholder="Logradouro" maxlength="20" required readonly >
+                                <input type="text" name="endereco_res" id="endereco" placeholder="Logradouro" maxlength="45"
+                                    required readonly>
 
-                                <input type="text" name="numero" id="numero" maxlength="06" placeholder="Número*"
+                                <input type="text" name="numero_res" id="numero" maxlength="06" placeholder="Número*"
                                     required>
-                                <input type="text" name="complemento" id="complemento" maxlength="20" placeholder="Complemento" >
+                                <input type="text" name="complemento_res" id="complemento" maxlength="45"
+                                    placeholder="Complemento">
 
+                                <input type="text" name="bairro_res" id="bairro" maxlength="45" placeholder="Bairro*"
+                                    readonly required>
 
+                                <input type="text" name="referencia_res" id="referencia" maxlength="45"
+                                    placeholder="Referência">
 
-                                <input type="text" name="bairro" id="bairro" maxlength="20" placeholder="Bairro*"
-                                readonly required>
-                                <input type="text" name="referencia" id="referencia" maxlength="20"
-                                    placeholder="Referência*">
+                                <input type="text" name="cidade_res" id="cidade" maxlength="45" placeholder="Cidade*" required
+                                    readonly>
 
-
-                                <input type="text" name="city" id="cidade" maxlength="20" placeholder="Cidade*" required readonly>
-                                <select name="estado" id="uf" required readonly>
-                                    <option id="estado" value="" disabled selected>UF</option>
+                                <select name="estado_res" id="uf" required readonly>
+                                    <option id="estado" name="estado_res"  disabled selected>UF</option>
 
                                 </select>
 
-                                <select name="pais" id="pais" class="paises" required maxlength="30">
+                                <select name="pais_res" id="pais" class="paises" required maxlength="45">
                                     <option id="AAA" value="00" disabled selected>PAÍS*</option>
 
-                                </select>
-
-
+                                </select>   
 
                             </fieldset>
                         </div>
@@ -150,34 +157,37 @@
                                 <legend>Endereco de entrega</legend>
 
 
-                                <input type="text" name="CEP entrega" id="cep2" maxlength="09" placeholder="Busca pelo CEP*" required >
-                                <input type="text" name="endereco entrega" id="endereco2" placeholder="endereço de entrega*"
-                                    required readonly>
+                                <input type="text" name="cep_ent" id="cep2" maxlength="09"
+                                    placeholder="Busca pelo CEP*" required>
+                                <input type="text" name="endereco_ent" id="endereco2"
+                                    placeholder="endereço de entrega*" required readonly>
 
 
-                                <input type="text" name="numero entrega" id="numero2" maxlength="06" placeholder="Número*" required>
-                                <input type="text" name="complemento entrega" id="complemento1"
+                                <input type="text" name="numero_ent" id="numero2" maxlength="06"
+                                    placeholder="Número*" required>
+                                <input type="text" name="complemento_ent" id="complemento1" maxlength="45"
                                     placeholder="Complemento">
 
 
-                                <input type="text" name="bairro entrega" id="bairro2" maxlength="20" placeholder="Bairro da entrega*" required readonly>
-                                <input type="text" name="referencia entrega" id="referencia1" maxlength="20" placeholder="Referência">
+                                <input type="text" name="bairro_ent" id="bairro2" maxlength="45"
+                                    placeholder="Bairro da entrega*" required readonly>
+                                <input type="text" name="referencia_ent" id="referencia1" maxlength="45"
+                                    placeholder="Referência">
 
 
-                                <input type="text" name="city entrega" id="cidade2" maxlength="20" placeholder="Cidade da entrega*" required readonly>
+                                <input type="text" name="cidade_ent" id="cidade2" maxlength="45"
+                                    placeholder="Cidade da entrega*" required readonly>
 
-                               
-                                <select name="estado entrega" id="uf2" required readonly maxlength="20">
-                                    <option id="estado2"value="" disabled selected>UF</option>
+
+                                <select name="estado_ent" id="uf2" required readonly maxlength="45">
+                                    <option name="estadoEntrega" id="estado2" value="" disabled selected>UF</option>
 
                                 </select>
 
-                                <select name="pais entrega" id="pais2" maxlength="30" class="paises" required>
+                                <select name="pais_ent" id="pais2" maxlength="45" class="paises" required>
                                     <option value="" disabled selected>PAÍS*</option>
 
                                 </select>
-
-
 
                             </fieldset>
                         </div>
@@ -210,6 +220,7 @@
                                     com?</span>
                                 <span> ao confirmar</span>
                                 </span>
+
                             </label>
                             <input type="checkbox" value="Confirmar" class="confirmar-button" id="licenca" required>
 

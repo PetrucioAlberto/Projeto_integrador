@@ -2,6 +2,8 @@ const { Router } = require('express');
 const express = require('express');
 const routes = express.Router();
 let productsController = require('../controllers/productsController');
+const auth = require('../midllewares/validaForms');
+
 
 
 
@@ -37,14 +39,9 @@ routes.delete('/giftcards/id', productsController.delGiftCard);
 
 
 
-
-
-
 routes.get('/pesquisa', productsController.pesquisaProdutos);
-
 routes.get('/produtoInterno', productsController.produtoInterno);
 routes.get('/minhasCompras', productsController.historicoDeCompras);
-
 
 
 module.exports = routes; 

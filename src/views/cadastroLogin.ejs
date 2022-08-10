@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
+    <script src = "https://unpkg.com/validator@latest/validator.min.js" > </script> 
+    <script src = "../javascripts/cadastroLoginScript.js" > </script>
+
     <link rel="stylesheet" href='../stylesheets/cadastroLogin.css'>
     <!-- //favicon -->
     <link rel="shortcut icon" href="../images/comuns/android-chrome-192x192.png" type="image/x-icon" />
 
 
 
-    <title>LOGIN</title>
+    <title>Login</title>
+
 </head>
 
 <body>
@@ -28,6 +33,7 @@
                 </div>
             </form>
             <div class="cadastro-login link">
+                
                 <a href="http://localhost:3000/usuarios/cadastro" target="_self"><img src="../images/cadastroLogin/pessoinha.png"
                         alt="icone representando uma pessoa"></a>
                 <a href="http://localhost:3000/usuarios/cadastro" target="_self"> Entrar | Cadastrar </a>
@@ -39,14 +45,16 @@
         <div class="cadastro-container">
             <div class="left-container">
                 <h3>Já sou cadastrado</h3>
-                <form action="" method="POST">
+                <form action="/usuarios/login" method="POST">
+
                     <div class="form-group email">
+                        
 
                         <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
                     </div>
                     <div class="form-group senha">
 
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                        <input type="password" name="password" id="senha" placeholder="Digite sua senha" required>
                     </div>
                     <div class="form-group submit">
                         <button type="submit" class="btn-cadastro">Entrar</button>
@@ -70,14 +78,13 @@
                     <div class="form-group submit">
                         <button type="submit" class="btn-cadastro">Cadastre-se</button>
                     </div>
-
                 </form>
             </div>
 
         </div>
         <div class="faixa-vermelha">
 
-            <form action="submit" method="POST" class="cadastrar-news">
+            <form action="" method="POST" class="cadastrar-news">
                 <p>Inscreva - se e receba<br>
                     Nossas ofertas exclusivas!</p>
                 <input type="text" name="name" id="nome-cadastrar" placeholder="Digite seu nome" required

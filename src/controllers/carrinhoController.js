@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const carrinhoController = {
     carrinho: (req, res, next) => {
+        console.log('carrinho')
         res.render('carrinhoDeCompras');
     }
 }

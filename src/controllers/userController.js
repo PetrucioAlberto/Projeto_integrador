@@ -1,6 +1,8 @@
 var express = require('express');
 const path = require('path');
 const api = require('../controllers/apiController');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 const {
     validationResult
@@ -8,10 +10,9 @@ const {
 const fs = require('fs');
 // const db = require('../models/index')
 const {
-    Usuario,
-    FormasPgto
+    Usuario
 
-} =  require('../models/index')
+} = require('../models/index')
 
 //logica  usuários
 
@@ -23,26 +24,15 @@ const userController = {
     formUser: (req, res, next) => {
         res.render('cadastroUser');
     },
-    salvarCadastro: (req, res, next) => {
-        // const errors = validationResult(req);
-        // if (!errors.isEmpty())[
-        //     console.log(errors)
-        // ]
-        res.send('XYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXYXXY')
-    },
-    sucessoUser: (req, res, ) => {
-        res.render('sucesso');
+    infocadastro: (req, res, next) => {
+        res.render('infoUsuario')
     },
 
     //CRUD USUÁRIOS
     allUsers: async (_, res) => {
         try {
             const usuarios = await Usuario.findAll({
-                include: [{
-                    model: FormasPgto,
-                    as: 'forma_pgto',
-                    required: true
-                }]
+
             });
             return res.json({
 
@@ -58,64 +48,75 @@ const userController = {
     //show user by id
     userById: async (req, res) => {
         const {
-            id,
+            id
         } = req.params;
         try {
             const usuario = await Usuario.findOne({
-                include: [{
-                    model: FormasPgto,
-                    as: 'forma_pgto',
-                    required: true
-                }],
                 where: {
                     id: id,
                 }
             })
-            return res.json({        
-                      
+            return res.json({
+
                 Email: usuario.email,
                 CPF: usuario.cpf,
                 Data: usuario
             })
         } catch (e) {
             console.log('e', e.message)
-            return res.send('Ops, deu merda')
+            return res.send('Usuário não existe')
         }
     },
-    //create user
-    addUser: async (req, res) => {
-        const data = req.body;
+    userByEmail: async (req, res) => {
+        // const {
+        //     email
+        // } = req.body;
         try {
-            await Usuario.create({
-                name: data.name,
-                surname: data.surname,
-                password: data.password,                
-                gender: data.gender,
-                cpf: data.cpf,                
-                cel_whats: data.cel_whats,
-                tel: data.tel,
-                email: data.email,
-                cep_res: data.cep_res,
-                endereco_res: data.endereco_res,
-                numero_res: data.numero_res,
-                bairro_res: data.bairro_res,
-                referencia_res: data.referencia_res,
-                cidade_res: data.cidade_res,
-                estado_res: data.estado_res,
-                pais_res: data.pais_res,
-                cep_ent: data.cep_ent,
-                endereco_ent: data.endereco_ent,
-                numero_ent: data.numero_ent,
-                bairro_ent: data.bairro_ent,
-                referencia_ent: data.referencia_ent,
-                cidade_ent: data.cidade_ent,
-                estado_ent: data.estado_ent,
-                pais_ent: data.pais_ent,
-                formas_pgtos_id: data.formas_pgtos_id,
+            const usuario = await Usuario.findOne({
+                where: {
+                    email: email,
+                }
             })
-            res.send('Usuário criado com sucesso')
+
+            res.json({
+                id: usuario.id,
+                Email: usuario.email,
+                senha: usuario.password,
+            })
+
+            if (usuario.usuario && usuario.password) {
+                return res.redirect('/login')
+            }
         } catch (e) {
-            return res.send('Ai meu deus')
+            console.log('e', e.message)
+            return res.send('Usuário não cadastrado')
+        }
+    },
+
+    //create user
+
+    addUser: async (req, res) => {
+
+        const data = {
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10)
+        }
+        try {
+
+
+            await Usuario.create({
+                ...data
+            })
+            return res.redirect('/usuarios/login')
+
+
+        } catch (e) {
+            console.log('e', e.message, req.body)
+
+            return res.render('cadastroUser', {
+                error: e.message
+            })
+
         }
 
     },
@@ -137,7 +138,10 @@ const userController = {
     },
     //update user
     updateUser: async (req, res) => {
-        const data = req.body;
+        const data = {
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10)
+        }
         const {
             id
         } = req.params;
@@ -146,9 +150,9 @@ const userController = {
                 id: data.id,
                 name: data.name,
                 surname: data.surname,
-                password: data.password,                
+                password: data.password,
                 gender: data.gender,
-                cpf: data.cpf,                
+                cpf: data.cpf,
                 cel_whats: data.cel_whats,
                 tel: data.tel,
                 email: data.email,
@@ -165,27 +169,46 @@ const userController = {
             return res.send('Ih, qq foi agora?????!!!!!!')
         }
     },
+    logarUsuario: async (req, res) => {
+        const {
+            email,
+            password
+        } = req.body;
 
-    payment: async (_, res) => {
         try {
-            const pays = await FormasPgto.findAll()
-            return res.send(pays)
+            const usuario = await Usuario.findOne({
+                where: {
+                    email: email,
+                }
+            })
+            
+            if(email === usuario.email && bcrypt.compareSync(password, usuario.password)){
+                req.session.usuario = usuario;
+                res.redirect('infoUsuario')            
+                res.send('usuario Logado')    
+            } 
+            if (email ==! usuario.email) {
+                res.send('usuário invalido')
+            }
+            if (!bcrypt.compareSync(password, usuario.password)) {
+                res.send('senha inválida')
+            }
+           
+            res.redirect('infoUsuario')
+            
+
         } catch (e) {
             console.log('e', e.message)
-            return res.render('404-page')
+            return res.render('cadastroLogin', {
+                error: 'Usuário ou senha inválido'
+            })
         }
-    },
+    }
 
-    userFilter: (req, res, next) => {
-        const id = req.params.id
-        const nome = req.params.nome
-        res.send(userCriado.find((user) => user.id == id || user.nome == nome));
 
-    },
 
-    infocadastro: (req, res, next) => {
-        res.render('infoUsuario')
-    },
+
+
 }
 
 

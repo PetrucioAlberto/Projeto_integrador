@@ -2,12 +2,12 @@ const express = require('express');
 const routes = express.Router();
 const path = require('path');
 const bodyParser = require('body-parser');
-
+const auth = require('../midllewares/validaForms');
 
 // ************ Controller Require ************
 let userController = require('../controllers/userController');
 //middlewares 
-let validators = require('../midllewares/validaForms');
+let Uservalidator = require('../midllewares/validaForms');
 let logDB = require('../midllewares/logDB');
 let db = require('../models/index');
 
@@ -19,30 +19,24 @@ let db = require('../models/index');
 //Routes usuario
 
 
+//////////////////////////////////////// login /////////////////////////////////////////////////////////////////
 routes.get('/login', userController.login);
+routes.post('/login', userController.logarUsuario);
 routes.get('/cadastro', userController.formUser);
-routes.post('/cadastro', userController.salvarCadastro);
-routes.get('/sucesso', userController.sucessoUser);
-
-/////////////////////////////////////////user CRUD///////////////////////////////////////////////////////
-routes.get('/users', userController.allUsers);
-routes.get('/users/:id', userController.userById);
-routes.post('/users',  userController.addUser);
-routes.put('/users/:id', userController.updateUser);
-routes.delete('/users/:id', userController.delUser);
-
-//////////////////////////////////////// FK_usuarios /////////////////////////////////////////////////////////////////
-
-routes.get('/formaPgto', userController.payment);
-
-
-
-routes.get('/UserById/:id', userController.userFilter);
 routes.get('/info', userController.infocadastro);
 
 
 
 
+
+/////////////////////////////////////////user CRUD///////////////////////////////////////////////////////
+routes.post('/cadastro', Uservalidator, logDB, userController.addUser);
+routes.get('/consulta', userController.allUsers);
+routes.get('/consulta/:id', userController.userById);
+routes.put('/atualizar/:id', userController.updateUser);
+routes.delete('/deletar/:id', userController.delUser);
+
+routes.get('/login/:email', userController.userByEmail)
 
 
 //export

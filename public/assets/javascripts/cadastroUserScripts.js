@@ -16,6 +16,9 @@ window.addEventListener('load', function () {
     const bairro = document.getElementById('bairro')
     const cidade = document.getElementById('cidade')
     const estado = document.getElementById('estado')
+    const uf = document.getElementById('uf')
+    const uf2 = document.getElementById('uf2')
+
     const pais = document.getElementById('pais')
    
     const endereco2 = document.getElementById('endereco2')
@@ -28,6 +31,7 @@ window.addEventListener('load', function () {
     
     const cep = document.getElementById('cep')
     const cep2 = document.getElementById('cep2')
+    const err = document.getElementById('err')
 
 
     cep.addEventListener('input', function () {
@@ -44,15 +48,9 @@ window.addEventListener('load', function () {
                     endereco.value = response.data.logradouro !== undefined ? response.data.logradouro : ""
                     bairro.value = response.data.bairro !== undefined ? response.data.bairro : ""
                     cidade.value = response.data.localidade !== undefined ? response.data.localidade : ""
-                    estado.value = response.data.uf !== undefined ? response.data.uf : ""
-                    estado.innerHTML = estado.value
-                    response.data.erro ? cep.value = '' : console.log('CEP encontrado')
-                })
-                .catch((err) => {
-                    if (response.status == 400) {
-                        alert('CEP não encontrado')
-                    }
-                })
+                    
+                    response.data.erro == undefined ? response.data.erro : alert('CEP não encontrado, busque novamente')
+                })                
         }
     })
 
@@ -64,18 +62,47 @@ window.addEventListener('load', function () {
             endereco2.value = ("")
             bairro2.value = ("")
             cidade2.value = ("")
-            estado2.value = ("")
+            
             axios.get('https://viacep.com.br/ws/' + cepDigitado2 + '/json')
                 .then(function (response) {
                     endereco2.value = response.data.logradouro !== undefined ? response.data.logradouro : ""
                     bairro2.value = response.data.bairro !== undefined ? response.data.bairro : ""
                     cidade2.value = response.data.localidade !== undefined ? response.data.localidade : ""
-                    estado2.value = response.data.uf !== undefined ? response.data.uf : ""
-                    estado2.innerHTML = estado2.value
-                    response.data.erro ? cep2.value = '' : console.log('CEP encontrado')
+                                           
+                                                
+                    response.data.erro == undefined ? response.data.erro : alert('CEP não encontrado, busque novamente')
                 })
-
         }
+    })
+    const ibgeEstado = axios.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
+    
+    ibgeEstado.then(function (response) {
+        const estados = response.data
+        estados.forEach(estado => {
+            const option = document.createElement('option')
+            option.value = estado.sigla
+            option.innerHTML = option.value
+            uf.append(option)
+        })
+        
+    })
+    .catch((err) => {
+        console.error(err);
+    })
+    const ibgeEstado2 = axios.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
+    
+    ibgeEstado2.then(function (response) {
+        const estados2 = response.data
+        estados2.forEach(estado => {
+            const option = document.createElement('option')
+            option.value = estado.sigla
+            option.innerHTML = option.value
+            uf2.append(option)
+        })
+        
+    })
+    .catch((err) => {
+        console.error(err);
     })
    
     const ibgePais = axios.get("https://servicodados.ibge.gov.br/api/v1/localidades/paises?orderBy=nome")
@@ -85,7 +112,7 @@ window.addEventListener('load', function () {
             paises.forEach((el) => {
                 const option = document.createElement('option')
                 option.innerHTML = el.nome
-                pais.appendChild(option)
+                pais.append(option)
             })
         })
         .catch((err) => {
@@ -96,14 +123,12 @@ window.addEventListener('load', function () {
             paises.forEach((el) => {
                 const option = document.createElement('option')
                 option.innerHTML = el.nome
-                pais2.appendChild(option)
+                pais2.append(option)
             })
         })
         .catch((err) => {
             console.error(err);
-        })
-    
-    const errors = []
+        })   
 
     const Validation = {
 
@@ -333,30 +358,5 @@ window.addEventListener('load', function () {
     numero2.addEventListener('input', function () {
         Validation.onlyNumbers2(numero2)
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
