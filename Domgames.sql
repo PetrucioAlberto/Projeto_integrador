@@ -166,7 +166,7 @@ CREATE TABLE `usuarios` (
 CREATE TABLE `vendas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `produtos_id` int(11) NOT NULL,
-  `preco_total` decimal(10,0) DEFAULT NULL,
+  `preco_total` decimal(10,0) DEFAULT NULL, 
   `tipo_pgto` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_vendas_produtos1_idx` (`produtos_id`),
