@@ -11,6 +11,8 @@ const auth = require('../midllewares/validaForms');
 
 
 routes.get('/acessorios', productsController.allAcessorios);
+routes.get('/acessorios/render/?', productsController.linkAcessorio);
+
 routes.get('/acessorios/:id', productsController.acessorioById);
 routes.post('/acessorios/', productsController.addAcessorio);
 routes.put('/acessorios/:id', productsController.updateAcessorio);
@@ -47,3 +49,4 @@ routes.get('/minhasCompras', productsController.historicoDeCompras);
 module.exports = routes; 
 
 
+ 

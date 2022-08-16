@@ -126,10 +126,10 @@ window.addEventListener('load', function () {
                 pais2.append(option)
             })
         })
-        .catch((err) => {
+        .catch((err) => { 
             console.error(err);
         })   
-
+ 
     const Validation = {
 
         maskTel: (tel) => {

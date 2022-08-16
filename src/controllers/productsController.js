@@ -14,10 +14,6 @@ const {
 
 const productsController = {
 
-
-    
-
-
     allAcessorios: async (req, res) => {
         try {
             const acessorios = await Acessorio.findAll({
@@ -36,6 +32,37 @@ const productsController = {
             return res.send('algo de errado não está certo')
         }
     },
+    linkAcessorio: async (req, res) => {
+        const {
+            nome,
+            preco,
+            image,
+            novo_usado,
+            estoque
+        } = req.params;
+
+        try {
+            const acessorio = await Acessorio.findOne({
+
+                    attributes: ['nome', 'preco', 'image', 'novo_usado, estoque'],
+                }, {
+                    where: {
+                        nome: nome
+                    }
+                })            
+            
+
+            console.log(acessorio)
+
+
+        } catch (e) {
+            // console.log('e', e.message)
+        }
+
+
+
+    },
+
     acessorioById: async (req, res) => {
         const {
             id
@@ -61,8 +88,9 @@ const productsController = {
     addAcessorio: async (req, res) => {
 
         const data = req.body;
+
         try {
-            await Acessorio.create({
+            await Acessorio.create({                
 
                 nome: data.nome,
                 preco: data.preco,
@@ -72,8 +100,18 @@ const productsController = {
                 descricao: data.descricao,
                 image: data.image,
                 video_link: data.video_link,
-                fabricantes_id: data.fabricantes_id
+                fabricantes_id: data.fabricantes_id,
+
+                include: [{
+                    model: Produto,
+                    as: 'produto',
+                    required: true
+                }, ],
+                where: {
+                    id: acessorio_id
+                },
             })
+
 
             res.send('Produto cadastrado com sucesso')
 

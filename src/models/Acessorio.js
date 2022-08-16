@@ -1,13 +1,19 @@
 module.exports = (sequelize, dataType) => {
 
     const Acessorio = sequelize.define('Acessorio', {
-        
+
+        id: {
+            type: dataType.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+
         nome: {
             type: dataType.STRING,
             allowNull: false,
         },
         preco: {
-            type: dataType.DECIMAL(10,2),
+            type: dataType.DECIMAL(10, 2),
             allowNull: false,
         },
         estoque: {

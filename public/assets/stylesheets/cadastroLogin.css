@@ -164,7 +164,19 @@ header form input {
     margin-left: 25px;
     text-size-adjust: 100%;
 }
-
+#manterLogado {
+    width: 15px;
+    height: 15px;
+    color: #CC0000;
+    margin-left: 25px;
+    text-size-adjust: 100%;
+}
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    
+}
 .cadastro-container form button {
     background-color: #FFE600;
     font-size: 20px;

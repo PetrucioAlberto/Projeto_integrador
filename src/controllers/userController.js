@@ -1,7 +1,9 @@
 var express = require('express');
 const path = require('path');
 const api = require('../controllers/apiController');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
+
 const session = require('express-session');
 
 const {
@@ -32,6 +34,7 @@ const userController = {
     allUsers: async (_, res) => {
         try {
             const usuarios = await Usuario.findAll({
+                
 
             });
             return res.json({
@@ -172,38 +175,46 @@ const userController = {
     logarUsuario: async (req, res) => {
         const {
             email,
-            password
+            password,
+            logado
         } = req.body;
 
         try {
             const usuario = await Usuario.findOne({
+
+                attributes: ['email', 'password', 'name', 'surname'],
+
+
+            }, {
                 where: {
-                    email: email,
+                    email: email
                 }
             })
-            
-            if(email === usuario.email && bcrypt.compareSync(password, usuario.password)){
-                req.session.usuario = usuario;
-                res.redirect('infoUsuario')            
-                res.send('usuario Logado')    
-            } 
-            if (email ==! usuario.email) {
-                res.send('usuário invalido')
+
+
+
+            console.log(usuario)
+            if (email == usuario.email && password == usuario.password) {
+                req.session.usuario = usuario
+                return res.render('carrinhoDeCompras')
+            } else {
+
             }
-            if (!bcrypt.compareSync(password, usuario.password)) {
-                res.send('senha inválida')
+            res.send('Usuário não cadastrado')
+            if (logado != undefined) {
+
+                res.cookies('logado', usuario, {
+                    maxAge: 600000
+                })
             }
-           
-            res.redirect('infoUsuario')
-            
 
         } catch (e) {
-            console.log('e', e.message)
-            return res.render('cadastroLogin', {
-                error: 'Usuário ou senha inválido'
-            })
+            // console.log('e', e.message)
         }
-    }
+
+
+
+    },
 
 
 

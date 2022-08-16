@@ -10,4 +10,4 @@ const carrinhoController = {
     }
 }
 
-module.exports = carrinhoController;
+module.exports = carrinhoController; 

@@ -6,7 +6,7 @@ const routes = express.Router();
 const partialsControllers = require('../controllers/partialsController');
 const validators = require('../midllewares/validaForms');
 let userController = require('../controllers/userController');
-let logDB = require('../midllewares/logDB');
+
 
 
 
@@ -20,7 +20,7 @@ let logDB = require('../midllewares/logDB');
 
 
 routes.get('/', partialsControllers.head);
-routes.post('/', validators, logDB ,partialsControllers.forms);
+routes.post('/', validators  ,partialsControllers.forms);
 routes.get('/info', userController.infocadastro);
 
 
